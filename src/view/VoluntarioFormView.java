@@ -10,6 +10,9 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         mainPanel.add(paginaInicio, "paginaInicio");
         mainPanel.add(paginaDatosPersonales, "paginaDatosPersonales");
         mainPanel.add(paginaContacto, "paginaContacto");
+        mainPanel.add(paginaExperienciaYMotivacion, "paginaExperienciaYMotivacion");
+        mainPanel.add(paginaHabilidades, "paginaHabilidades");
+        mainPanel.add(paginaDocumentacion, "paginaDocumentacion");
 
     }
 
@@ -24,6 +27,9 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
         grupoSexo = new javax.swing.ButtonGroup();
         grupoLicencia = new javax.swing.ButtonGroup();
+        grupoVoluntario = new javax.swing.ButtonGroup();
+        grupoEntrenamiento = new javax.swing.ButtonGroup();
+        grupoCompromisoCapacitacion = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         paginaInicio = new javax.swing.JPanel();
         franjaRojaInicial = new javax.swing.JPanel();
@@ -36,14 +42,16 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelPestañas = new javax.swing.JPanel();
         btn0DatosPersonales = new javax.swing.JButton();
         btn0Contacto = new javax.swing.JButton();
-        btn0Habilidades = new javax.swing.JButton();
         btn0ExperienciaYMotivacion = new javax.swing.JButton();
+        btn0Habilidades = new javax.swing.JButton();
         btn0Documentacion = new javax.swing.JButton();
         panelScroll = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
         panelContenido = new javax.swing.JPanel();
         panelFormulario = new javax.swing.JPanel();
-        ESPACIO1 = new javax.swing.JLabel();
+        ESPACIO5 = new javax.swing.JLabel();
+        ESPACIO9 = new javax.swing.JLabel();
+        DATOSPERSONALES = new javax.swing.JLabel();
         ESPACIO2 = new javax.swing.JLabel();
         lblNom = new javax.swing.JLabel();
         txtNom = new javax.swing.JTextField();
@@ -56,9 +64,9 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         lblEda = new javax.swing.JLabel();
         txtEda = new javax.swing.JTextField();
         lblSex = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jPanel7 = new javax.swing.JPanel();
+        btnSexMasculino = new javax.swing.JRadioButton();
+        btnSexFemenino = new javax.swing.JRadioButton();
         panelInferior = new javax.swing.JPanel();
         btn0SiguientePagina = new javax.swing.JButton();
         paginaContacto = new javax.swing.JPanel();
@@ -67,8 +75,8 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelPestañas1 = new javax.swing.JPanel();
         btn1DatosPersonales = new javax.swing.JButton();
         btn1Contacto = new javax.swing.JButton();
+        btn1ExperienciaYMotivacion = new javax.swing.JButton();
         btn1Habilidades = new javax.swing.JButton();
-        btn1ExperienciaYMotivacion1 = new javax.swing.JButton();
         btn1Documentacion = new javax.swing.JButton();
         panelScroll1 = new javax.swing.JPanel();
         scroll1 = new javax.swing.JScrollPane();
@@ -76,6 +84,8 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelFormulario1 = new javax.swing.JPanel();
         ESPACIO3 = new javax.swing.JLabel();
         ESPACIO4 = new javax.swing.JLabel();
+        DATOSPERSONALES1 = new javax.swing.JLabel();
+        ESPACIO10 = new javax.swing.JLabel();
         lblCor = new javax.swing.JLabel();
         txtCor = new javax.swing.JTextField();
         lblTel = new javax.swing.JLabel();
@@ -93,9 +103,161 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelInferior1 = new javax.swing.JPanel();
         btn1SiguientePagina = new javax.swing.JButton();
         btn1PaginaAnterior = new javax.swing.JButton();
+        paginaExperienciaYMotivacion = new javax.swing.JPanel();
+        panelSuperior2 = new javax.swing.JPanel();
+        iconoBomberos2 = new javax.swing.JLabel();
+        panelPestañas2 = new javax.swing.JPanel();
+        btn2DatosPersonales = new javax.swing.JButton();
+        btn2Contacto = new javax.swing.JButton();
+        btn2ExperienciaYMotivacion = new javax.swing.JButton();
+        btn2Habilidades = new javax.swing.JButton();
+        btn2Documentacion = new javax.swing.JButton();
+        panelScroll2 = new javax.swing.JPanel();
+        scroll2 = new javax.swing.JScrollPane();
+        panelContenido2 = new javax.swing.JPanel();
+        panelFormulario2 = new javax.swing.JPanel();
+        SECCION1 = new javax.swing.JLabel();
+        ESPACIO6 = new javax.swing.JLabel();
+        lblVol = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnVolSi = new javax.swing.JRadioButton();
+        btnVolNo = new javax.swing.JRadioButton();
+        lblExpPrevia = new javax.swing.JLabel();
+        txtExpPrevia = new javax.swing.JComboBox<>();
+        lblCapa = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnCapaCRoja = new javax.swing.JCheckBox();
+        btnCapaPNPFFAA = new javax.swing.JCheckBox();
+        btnCapaDCivil = new javax.swing.JCheckBox();
+        btnCapaOtros = new javax.swing.JCheckBox();
+        SECCION2 = new javax.swing.JLabel();
+        ESPACIO7 = new javax.swing.JLabel();
+        lblMot = new javax.swing.JLabel();
+        txtMot = new javax.swing.JTextField();
+        lblAport = new javax.swing.JLabel();
+        txtAport = new javax.swing.JTextField();
+        lblManejo = new javax.swing.JLabel();
+        txtManejo = new javax.swing.JTextField();
+        SECCION3 = new javax.swing.JLabel();
+        ESPACIO8 = new javax.swing.JLabel();
+        lblEntr = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnEntrSi = new javax.swing.JRadioButton();
+        btnEntrNo = new javax.swing.JRadioButton();
+        lblCompCapa = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        btnCompCapaSi = new javax.swing.JRadioButton();
+        btnCompCapaNo = new javax.swing.JRadioButton();
+        lblDiscap = new javax.swing.JLabel();
+        txtDiscap = new javax.swing.JTextField();
+        lblDisp = new javax.swing.JLabel();
+        txtDisp = new javax.swing.JComboBox<>();
+        DATOSPERSONALES2 = new javax.swing.JLabel();
+        panelInferior2 = new javax.swing.JPanel();
+        btn2SiguientePagina = new javax.swing.JButton();
+        btn2PaginaAnterior = new javax.swing.JButton();
+        paginaHabilidades = new javax.swing.JPanel();
+        panelSuperior3 = new javax.swing.JPanel();
+        iconoBomberos3 = new javax.swing.JLabel();
+        panelPestañas3 = new javax.swing.JPanel();
+        btn3DatosPersonales = new javax.swing.JButton();
+        btn3Contacto = new javax.swing.JButton();
+        btn3ExperienciaYMotivacion = new javax.swing.JButton();
+        btn3Habilidades = new javax.swing.JButton();
+        btn3Documentacion = new javax.swing.JButton();
+        panelScroll3 = new javax.swing.JPanel();
+        scroll3 = new javax.swing.JScrollPane();
+        panelContenido3 = new javax.swing.JPanel();
+        panelFormulario3 = new javax.swing.JPanel();
+        HABILIDADES = new javax.swing.JLabel();
+        HABILIDADES1 = new javax.swing.JLabel();
+        HABILIDADES2 = new javax.swing.JLabel();
+        btnSkillPrimerosAuxiliosBasicos = new javax.swing.JCheckBox();
+        btnSkillRCP = new javax.swing.JCheckBox();
+        btnSkillControlHemorragias = new javax.swing.JCheckBox();
+        btnSkillFracturas = new javax.swing.JCheckBox();
+        btnSkillEvacHeridos = new javax.swing.JCheckBox();
+        btnSkillBusqRescate = new javax.swing.JCheckBox();
+        btnSkillRescVehicular = new javax.swing.JCheckBox();
+        btnSkillRescAcuatico = new javax.swing.JCheckBox();
+        btnSkillRescAltura = new javax.swing.JCheckBox();
+        btnSkillCampoSelva = new javax.swing.JCheckBox();
+        HABILIDADES3 = new javax.swing.JLabel();
+        btnSkillExtintores = new javax.swing.JCheckBox();
+        btnSkillManguerasAgua = new javax.swing.JCheckBox();
+        btnSkillUsoERA = new javax.swing.JCheckBox();
+        btnSkillMatInflamables = new javax.swing.JCheckBox();
+        btnSkillIncendiosForestales = new javax.swing.JCheckBox();
+        btnSkillIncendiosEstructurales = new javax.swing.JCheckBox();
+        btnSkillIncendiosVehiculares = new javax.swing.JCheckBox();
+        btnSkillPrevIncendiosDomesticos = new javax.swing.JCheckBox();
+        HABILIDADES4 = new javax.swing.JLabel();
+        btnSkillMecanica = new javax.swing.JCheckBox();
+        btnSkillElectricidad = new javax.swing.JCheckBox();
+        btnSkillCarpinteria = new javax.swing.JCheckBox();
+        btnSkillAlbanileria = new javax.swing.JCheckBox();
+        btnSkillSoldadura = new javax.swing.JCheckBox();
+        btnSkillHerramientas = new javax.swing.JCheckBox();
+        btnSkillConduccionVehicPesados = new javax.swing.JCheckBox();
+        btnSkillRadioComunicaciones = new javax.swing.JCheckBox();
+        HABILIDADES5 = new javax.swing.JLabel();
+        btnSkillCoordinacionGrupos = new javax.swing.JCheckBox();
+        btnSkillGestionEmergencias = new javax.swing.JCheckBox();
+        btnSkillLogisticaSuministros = new javax.swing.JCheckBox();
+        btnSkillComunicacionEfectiva = new javax.swing.JCheckBox();
+        btnSkillCapacitacionEnsenanza = new javax.swing.JCheckBox();
+        btnSkillRutasEvacuaciones = new javax.swing.JCheckBox();
+        HABILIDADES6 = new javax.swing.JLabel();
+        btnSkillInformatica = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos34 = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos35 = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos33 = new javax.swing.JCheckBox();
+        HABILIDADES7 = new javax.swing.JLabel();
+        btnSkillPrimerosAuxiliosBasicos36 = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos37 = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos38 = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos39 = new javax.swing.JCheckBox();
+        btnSkillPrimerosAuxiliosBasicos40 = new javax.swing.JCheckBox();
+        HABILIDADES8 = new javax.swing.JLabel();
+        panelInferior3 = new javax.swing.JPanel();
+        btn3SiguientePagina = new javax.swing.JButton();
+        btn3PaginaAnterior = new javax.swing.JButton();
+        paginaDocumentacion = new javax.swing.JPanel();
+        panelSuperior4 = new javax.swing.JPanel();
+        iconoBomberos4 = new javax.swing.JLabel();
+        panelPestañas4 = new javax.swing.JPanel();
+        btn4DatosPersonales = new javax.swing.JButton();
+        btn4Contacto = new javax.swing.JButton();
+        btn4ExperienciaYMotivacion = new javax.swing.JButton();
+        btn4Habilidades = new javax.swing.JButton();
+        btn4Documentacion = new javax.swing.JButton();
+        panelScroll4 = new javax.swing.JPanel();
+        scroll4 = new javax.swing.JScrollPane();
+        panelContenido4 = new javax.swing.JPanel();
+        panelFormulario4 = new javax.swing.JPanel();
+        ESPACIO11 = new javax.swing.JLabel();
+        ESPACIO12 = new javax.swing.JLabel();
+        DATOSPERSONALES3 = new javax.swing.JLabel();
+        ESPACIO13 = new javax.swing.JLabel();
+        lblAdjuntarIdentificacion = new javax.swing.JLabel();
+        btnAdjuntarIdentificacion = new javax.swing.JButton();
+        lblAdjuntarIdentificacion1 = new javax.swing.JLabel();
+        btnAdjuntarIdentificacion1 = new javax.swing.JButton();
+        lblAdjuntarIdentificacion2 = new javax.swing.JLabel();
+        btnAdjuntarIdentificacion2 = new javax.swing.JButton();
+        lblAdjuntarIdentificacion3 = new javax.swing.JLabel();
+        btnAdjuntarIdentificacion3 = new javax.swing.JButton();
+        lblAdjuntarIdentificacion4 = new javax.swing.JLabel();
+        btnAdjuntarIdentificacion4 = new javax.swing.JButton();
+        lblAdjuntarIdentificacion5 = new javax.swing.JLabel();
+        btnAdjuntarIdentificacion5 = new javax.swing.JButton();
+        panelInferior4 = new javax.swing.JPanel();
+        btn4EntregarFormulario = new javax.swing.JButton();
+        btn4PaginaAnterior = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
+        setMinimumSize(new java.awt.Dimension(849, 480));
         setPreferredSize(new java.awt.Dimension(854, 480));
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -167,18 +329,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         });
         panelPestañas.add(btn0Contacto);
 
-        btn0Habilidades.setBackground(new java.awt.Color(180, 15, 15));
-        btn0Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn0Habilidades.setForeground(new java.awt.Color(255, 255, 255));
-        btn0Habilidades.setText("HABILIDADES");
-        btn0Habilidades.setActionCommand("");
-        btn0Habilidades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn0HabilidadesActionPerformed(evt);
-            }
-        });
-        panelPestañas.add(btn0Habilidades);
-
         btn0ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
         btn0ExperienciaYMotivacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn0ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,11 +341,28 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         });
         panelPestañas.add(btn0ExperienciaYMotivacion);
 
+        btn0Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+        btn0Habilidades.setText("HABILIDADES");
+        btn0Habilidades.setActionCommand("");
+        btn0Habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0HabilidadesActionPerformed(evt);
+            }
+        });
+        panelPestañas.add(btn0Habilidades);
+
         btn0Documentacion.setBackground(new java.awt.Color(180, 15, 15));
         btn0Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn0Documentacion.setForeground(new java.awt.Color(255, 255, 255));
         btn0Documentacion.setText("DOCUMENTACIÓN");
         btn0Documentacion.setActionCommand("");
+        btn0Documentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0DocumentacionActionPerformed(evt);
+            }
+        });
         panelPestañas.add(btn0Documentacion);
 
         panelSuperior.add(panelPestañas, java.awt.BorderLayout.PAGE_END);
@@ -213,15 +380,33 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelContenido.setPreferredSize(new java.awt.Dimension(610, 500));
 
         panelFormulario.setBackground(new java.awt.Color(255, 255, 255));
-        panelFormulario.setPreferredSize(new java.awt.Dimension(600, 450));
-        panelFormulario.setLayout(new java.awt.GridLayout(0, 2, 50, 40));
+        panelFormulario.setPreferredSize(new java.awt.Dimension(600, 460));
+        panelFormulario.setLayout(new java.awt.GridLayout(0, 2, 50, 30));
 
-        ESPACIO1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ESPACIO1.setForeground(new java.awt.Color(0, 0, 0));
-        panelFormulario.add(ESPACIO1);
+        ESPACIO5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO5.setForeground(new java.awt.Color(0, 0, 0));
+        ESPACIO5.setMaximumSize(new java.awt.Dimension(90, 60));
+        ESPACIO5.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario.add(ESPACIO5);
+
+        ESPACIO9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO9.setForeground(new java.awt.Color(0, 0, 0));
+        ESPACIO9.setMaximumSize(new java.awt.Dimension(90, 60));
+        ESPACIO9.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario.add(ESPACIO9);
+
+        DATOSPERSONALES.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DATOSPERSONALES.setForeground(new java.awt.Color(0, 0, 0));
+        DATOSPERSONALES.setText("<html>SECCIÓN: DATOS PERSONALES</html>");
+        DATOSPERSONALES.setMaximumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES.setMinimumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario.add(DATOSPERSONALES);
 
         ESPACIO2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ESPACIO2.setForeground(new java.awt.Color(0, 0, 0));
+        ESPACIO2.setMaximumSize(new java.awt.Dimension(90, 60));
+        ESPACIO2.setMinimumSize(new java.awt.Dimension(90, 60));
         panelFormulario.add(ESPACIO2);
 
         lblNom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -298,22 +483,27 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         lblSex.setText("Sexo:");
         panelFormulario.add(lblSex);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new java.awt.BorderLayout());
 
-        grupoSexo.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(180, 15, 15));
-        jRadioButton1.setText("Masculino");
-        jPanel1.add(jRadioButton1, java.awt.BorderLayout.CENTER);
+        grupoSexo.add(btnSexMasculino);
+        btnSexMasculino.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSexMasculino.setForeground(new java.awt.Color(180, 15, 15));
+        btnSexMasculino.setText("Si");
+        btnSexMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSexMasculinoActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnSexMasculino, java.awt.BorderLayout.CENTER);
 
-        grupoSexo.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(180, 15, 15));
-        jRadioButton2.setText("Femenino");
-        jPanel1.add(jRadioButton2, java.awt.BorderLayout.EAST);
+        grupoSexo.add(btnSexFemenino);
+        btnSexFemenino.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSexFemenino.setForeground(new java.awt.Color(180, 15, 15));
+        btnSexFemenino.setText("No");
+        jPanel7.add(btnSexFemenino, java.awt.BorderLayout.EAST);
 
-        panelFormulario.add(jPanel1);
+        panelFormulario.add(jPanel7);
 
         panelContenido.add(panelFormulario);
 
@@ -377,6 +567,18 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         });
         panelPestañas1.add(btn1Contacto);
 
+        btn1ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn1ExperienciaYMotivacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn1ExperienciaYMotivacion.setText("EXPERIENCIA Y MOTIVACIÓN");
+        btn1ExperienciaYMotivacion.setActionCommand("");
+        btn1ExperienciaYMotivacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ExperienciaYMotivacionActionPerformed(evt);
+            }
+        });
+        panelPestañas1.add(btn1ExperienciaYMotivacion);
+
         btn1Habilidades.setBackground(new java.awt.Color(180, 15, 15));
         btn1Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn1Habilidades.setForeground(new java.awt.Color(255, 255, 255));
@@ -389,23 +591,16 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         });
         panelPestañas1.add(btn1Habilidades);
 
-        btn1ExperienciaYMotivacion1.setBackground(new java.awt.Color(180, 15, 15));
-        btn1ExperienciaYMotivacion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn1ExperienciaYMotivacion1.setForeground(new java.awt.Color(255, 255, 255));
-        btn1ExperienciaYMotivacion1.setText("EXPERIENCIA Y MOTIVACIÓN");
-        btn1ExperienciaYMotivacion1.setActionCommand("");
-        btn1ExperienciaYMotivacion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ExperienciaYMotivacion1ActionPerformed(evt);
-            }
-        });
-        panelPestañas1.add(btn1ExperienciaYMotivacion1);
-
         btn1Documentacion.setBackground(new java.awt.Color(180, 15, 15));
         btn1Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn1Documentacion.setForeground(new java.awt.Color(255, 255, 255));
         btn1Documentacion.setText("DOCUMENTACIÓN");
         btn1Documentacion.setActionCommand("");
+        btn1Documentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1DocumentacionActionPerformed(evt);
+            }
+        });
         panelPestañas1.add(btn1Documentacion);
 
         panelSuperior1.add(panelPestañas1, java.awt.BorderLayout.PAGE_END);
@@ -424,7 +619,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
         panelFormulario1.setBackground(new java.awt.Color(255, 255, 255));
         panelFormulario1.setPreferredSize(new java.awt.Dimension(600, 450));
-        panelFormulario1.setLayout(new java.awt.GridLayout(0, 2, 50, 40));
+        panelFormulario1.setLayout(new java.awt.GridLayout(0, 2, 50, 30));
 
         ESPACIO3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ESPACIO3.setForeground(new java.awt.Color(0, 0, 0));
@@ -433,6 +628,18 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         ESPACIO4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ESPACIO4.setForeground(new java.awt.Color(0, 0, 0));
         panelFormulario1.add(ESPACIO4);
+
+        DATOSPERSONALES1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DATOSPERSONALES1.setForeground(new java.awt.Color(0, 0, 0));
+        DATOSPERSONALES1.setText("<html>SECCIÓN: INF. DE CONTACTO</html>");
+        DATOSPERSONALES1.setMaximumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES1.setMinimumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES1.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario1.add(DATOSPERSONALES1);
+
+        ESPACIO10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO10.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario1.add(ESPACIO10);
 
         lblCor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCor.setForeground(new java.awt.Color(0, 0, 0));
@@ -565,6 +772,1223 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
         mainPanel.add(paginaContacto, "card3");
 
+        paginaExperienciaYMotivacion.setBackground(new java.awt.Color(255, 255, 255));
+        paginaExperienciaYMotivacion.setMinimumSize(new java.awt.Dimension(849, 2000));
+        paginaExperienciaYMotivacion.setPreferredSize(new java.awt.Dimension(1080, 2000));
+        paginaExperienciaYMotivacion.setLayout(new java.awt.BorderLayout());
+
+        panelSuperior2.setBackground(new java.awt.Color(180, 15, 15));
+        panelSuperior2.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        panelSuperior2.add(iconoBomberos2, java.awt.BorderLayout.CENTER);
+
+        panelPestañas2.setBackground(new java.awt.Color(137, 10, 10));
+
+        btn2DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn2DatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+        btn2DatosPersonales.setText("DATOS PERSONALES");
+        btn2DatosPersonales.setActionCommand("");
+        btn2DatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2DatosPersonalesActionPerformed(evt);
+            }
+        });
+        panelPestañas2.add(btn2DatosPersonales);
+
+        btn2Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn2Contacto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2Contacto.setForeground(new java.awt.Color(255, 255, 255));
+        btn2Contacto.setText("CONTACTO");
+        btn2Contacto.setActionCommand("");
+        btn2Contacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ContactoActionPerformed(evt);
+            }
+        });
+        panelPestañas2.add(btn2Contacto);
+
+        btn2ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn2ExperienciaYMotivacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn2ExperienciaYMotivacion.setText("EXPERIENCIA Y MOTIVACIÓN");
+        btn2ExperienciaYMotivacion.setActionCommand("");
+        btn2ExperienciaYMotivacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ExperienciaYMotivacionActionPerformed(evt);
+            }
+        });
+        panelPestañas2.add(btn2ExperienciaYMotivacion);
+
+        btn2Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn2Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+        btn2Habilidades.setText("HABILIDADES");
+        btn2Habilidades.setActionCommand("");
+        btn2Habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2HabilidadesActionPerformed(evt);
+            }
+        });
+        panelPestañas2.add(btn2Habilidades);
+
+        btn2Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn2Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn2Documentacion.setText("DOCUMENTACIÓN");
+        btn2Documentacion.setActionCommand("");
+        btn2Documentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2DocumentacionActionPerformed(evt);
+            }
+        });
+        panelPestañas2.add(btn2Documentacion);
+
+        panelSuperior2.add(panelPestañas2, java.awt.BorderLayout.PAGE_END);
+
+        paginaExperienciaYMotivacion.add(panelSuperior2, java.awt.BorderLayout.NORTH);
+
+        panelScroll2.setBackground(new java.awt.Color(255, 255, 255));
+        panelScroll2.setLayout(new java.awt.BorderLayout());
+
+        scroll2.setForeground(new java.awt.Color(153, 153, 153));
+        scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelContenido2.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenido2.setMaximumSize(new java.awt.Dimension(600, 2000));
+        panelContenido2.setPreferredSize(new java.awt.Dimension(610, 1200));
+
+        panelFormulario2.setBackground(new java.awt.Color(255, 255, 255));
+        panelFormulario2.setMinimumSize(new java.awt.Dimension(650, 800));
+        panelFormulario2.setPreferredSize(new java.awt.Dimension(700, 1150));
+        panelFormulario2.setLayout(new java.awt.GridLayout(0, 2, 50, 40));
+
+        SECCION1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SECCION1.setForeground(new java.awt.Color(0, 0, 0));
+        SECCION1.setText("<html><br>SECCIÓN 1: EXPERIENCIA PREVIA</html>");
+        SECCION1.setMaximumSize(new java.awt.Dimension(90, 60));
+        SECCION1.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario2.add(SECCION1);
+
+        ESPACIO6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO6.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario2.add(ESPACIO6);
+
+        lblVol.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblVol.setForeground(new java.awt.Color(0, 0, 0));
+        lblVol.setText("¿Has sido voluntario anteriormente?");
+        panelFormulario2.add(lblVol);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        grupoVoluntario.add(btnVolSi);
+        btnVolSi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVolSi.setForeground(new java.awt.Color(180, 15, 15));
+        btnVolSi.setText("Si");
+        btnVolSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolSiActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnVolSi, java.awt.BorderLayout.CENTER);
+
+        grupoVoluntario.add(btnVolNo);
+        btnVolNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVolNo.setForeground(new java.awt.Color(180, 15, 15));
+        btnVolNo.setText("No");
+        jPanel3.add(btnVolNo, java.awt.BorderLayout.EAST);
+
+        panelFormulario2.add(jPanel3);
+
+        lblExpPrevia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblExpPrevia.setForeground(new java.awt.Color(0, 0, 0));
+        lblExpPrevia.setText("<html>¿Cuánto tiempo de experiencia tienes <br> en voluntariado o servicio comunitario?</html>");
+        lblExpPrevia.setMaximumSize(new java.awt.Dimension(529, 50));
+        lblExpPrevia.setPreferredSize(new java.awt.Dimension(529, 50));
+        panelFormulario2.add(lblExpPrevia);
+        lblExpPrevia.getAccessibleContext().setAccessibleName("");
+
+        txtExpPrevia.setBackground(new java.awt.Color(180, 15, 15));
+        txtExpPrevia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtExpPrevia.setForeground(new java.awt.Color(255, 255, 255));
+        txtExpPrevia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguna experiencia", "Menos de 1 año", "1-3 años", "Más de 3 años" }));
+        panelFormulario2.add(txtExpPrevia);
+
+        lblCapa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCapa.setForeground(new java.awt.Color(0, 0, 0));
+        lblCapa.setText("<html>¿Has participado en capacitaciones de <br>primeros auxilios, rescate o emergencias?</html>");
+        lblCapa.setMaximumSize(new java.awt.Dimension(529, 50));
+        lblCapa.setPreferredSize(new java.awt.Dimension(529, 50));
+        panelFormulario2.add(lblCapa);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.GridLayout(2, 2));
+
+        btnCapaCRoja.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCapaCRoja.setForeground(new java.awt.Color(180, 15, 15));
+        btnCapaCRoja.setText("Cruz Roja Peruana");
+        jPanel4.add(btnCapaCRoja);
+
+        btnCapaPNPFFAA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCapaPNPFFAA.setForeground(new java.awt.Color(180, 15, 15));
+        btnCapaPNPFFAA.setText("PNP - FFAA");
+        jPanel4.add(btnCapaPNPFFAA);
+
+        btnCapaDCivil.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCapaDCivil.setForeground(new java.awt.Color(180, 15, 15));
+        btnCapaDCivil.setText("Defensa Civil");
+        jPanel4.add(btnCapaDCivil);
+
+        btnCapaOtros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCapaOtros.setForeground(new java.awt.Color(180, 15, 15));
+        btnCapaOtros.setText("Otros");
+        jPanel4.add(btnCapaOtros);
+
+        panelFormulario2.add(jPanel4);
+
+        SECCION2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SECCION2.setForeground(new java.awt.Color(0, 0, 0));
+        SECCION2.setText("<html><br>SECCIÓN 2: MOTIVACIÓN PERSONAL</html>");
+        SECCION2.setMaximumSize(new java.awt.Dimension(90, 60));
+        SECCION2.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario2.add(SECCION2);
+
+        ESPACIO7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO7.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario2.add(ESPACIO7);
+
+        lblMot.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMot.setForeground(new java.awt.Color(0, 0, 0));
+        lblMot.setText("<html>¿Que te motiva a ser parte del Cuerpo <br> General de Bomberos Voluntarios del Perú?</html>");
+        lblMot.setMaximumSize(new java.awt.Dimension(90, 60));
+        lblMot.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario2.add(lblMot);
+
+        txtMot.setBackground(new java.awt.Color(180, 15, 15));
+        txtMot.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtMot.setForeground(new java.awt.Color(255, 255, 255));
+        panelFormulario2.add(txtMot);
+
+        lblAport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAport.setForeground(new java.awt.Color(0, 0, 0));
+        lblAport.setText("¿Qué esperas aportar a la institución?");
+        panelFormulario2.add(lblAport);
+
+        txtAport.setBackground(new java.awt.Color(180, 15, 15));
+        txtAport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtAport.setForeground(new java.awt.Color(255, 255, 255));
+        panelFormulario2.add(txtAport);
+
+        lblManejo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblManejo.setForeground(new java.awt.Color(0, 0, 0));
+        lblManejo.setText("<html>¿Cómo manejas las situaciones de presión <br>o emergencia?<html>");
+        panelFormulario2.add(lblManejo);
+
+        txtManejo.setBackground(new java.awt.Color(180, 15, 15));
+        txtManejo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtManejo.setForeground(new java.awt.Color(255, 255, 255));
+        panelFormulario2.add(txtManejo);
+
+        SECCION3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SECCION3.setForeground(new java.awt.Color(0, 0, 0));
+        SECCION3.setText("<html><br>SECCIÓN 3: COMPROMISO</html>");
+        SECCION3.setMaximumSize(new java.awt.Dimension(90, 60));
+        SECCION3.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario2.add(SECCION3);
+
+        ESPACIO8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO8.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario2.add(ESPACIO8);
+
+        lblEntr.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEntr.setForeground(new java.awt.Color(0, 0, 0));
+        lblEntr.setText("<html>¿Considerarías recibir entrenamiento físico <br>y técnico regularmente?</html>");
+        lblEntr.setMaximumSize(new java.awt.Dimension(90, 60));
+        lblEntr.setMinimumSize(new java.awt.Dimension(90, 60));
+        panelFormulario2.add(lblEntr);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        grupoEntrenamiento.add(btnEntrSi);
+        btnEntrSi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEntrSi.setForeground(new java.awt.Color(180, 15, 15));
+        btnEntrSi.setText("Si");
+        btnEntrSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrSiActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnEntrSi, java.awt.BorderLayout.CENTER);
+
+        grupoEntrenamiento.add(btnEntrNo);
+        btnEntrNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEntrNo.setForeground(new java.awt.Color(180, 15, 15));
+        btnEntrNo.setText("No");
+        jPanel5.add(btnEntrNo, java.awt.BorderLayout.EAST);
+
+        panelFormulario2.add(jPanel5);
+
+        lblCompCapa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCompCapa.setForeground(new java.awt.Color(0, 0, 0));
+        lblCompCapa.setText("<html>¿Puedes comprometerte a asistir a las <br>capacitaciones iniciales?<html>");
+        panelFormulario2.add(lblCompCapa);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
+        grupoCompromisoCapacitacion.add(btnCompCapaSi);
+        btnCompCapaSi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCompCapaSi.setForeground(new java.awt.Color(180, 15, 15));
+        btnCompCapaSi.setText("Si");
+        btnCompCapaSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompCapaSiActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnCompCapaSi, java.awt.BorderLayout.CENTER);
+
+        grupoCompromisoCapacitacion.add(btnCompCapaNo);
+        btnCompCapaNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCompCapaNo.setForeground(new java.awt.Color(180, 15, 15));
+        btnCompCapaNo.setText("No");
+        jPanel6.add(btnCompCapaNo, java.awt.BorderLayout.EAST);
+
+        panelFormulario2.add(jPanel6);
+
+        lblDiscap.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDiscap.setForeground(new java.awt.Color(0, 0, 0));
+        lblDiscap.setText("<html>¿Tienes algún impedimento físico o <br>personal que debamos considerar?<html>");
+        panelFormulario2.add(lblDiscap);
+
+        txtDiscap.setBackground(new java.awt.Color(180, 15, 15));
+        txtDiscap.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtDiscap.setForeground(new java.awt.Color(255, 255, 255));
+        panelFormulario2.add(txtDiscap);
+
+        lblDisp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDisp.setForeground(new java.awt.Color(0, 0, 0));
+        lblDisp.setText("¿Cuál es tu disponibilidad para colaborar?");
+        panelFormulario2.add(lblDisp);
+
+        txtDisp.setBackground(new java.awt.Color(180, 15, 15));
+        txtDisp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtDisp.setForeground(new java.awt.Color(255, 255, 255));
+        txtDisp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Horario Flexible", "Fines de semana", "Mañana", "Tarde", "Noche" }));
+        panelFormulario2.add(txtDisp);
+
+        DATOSPERSONALES2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DATOSPERSONALES2.setForeground(new java.awt.Color(0, 0, 0));
+        DATOSPERSONALES2.setText("<html>INFORMACIÓN DE CONTACTO</html>");
+        DATOSPERSONALES2.setMaximumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES2.setMinimumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES2.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario2.add(DATOSPERSONALES2);
+
+        panelContenido2.add(panelFormulario2);
+
+        scroll2.setViewportView(panelContenido2);
+
+        panelScroll2.add(scroll2, java.awt.BorderLayout.CENTER);
+
+        paginaExperienciaYMotivacion.add(panelScroll2, java.awt.BorderLayout.CENTER);
+
+        panelInferior2.setBackground(new java.awt.Color(180, 15, 15));
+        panelInferior2.setLayout(new java.awt.BorderLayout());
+
+        btn2SiguientePagina.setBackground(new java.awt.Color(255, 255, 255));
+        btn2SiguientePagina.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2SiguientePagina.setForeground(new java.awt.Color(180, 15, 15));
+        btn2SiguientePagina.setText("Siguiente página");
+        btn2SiguientePagina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2SiguientePaginaActionPerformed(evt);
+            }
+        });
+        panelInferior2.add(btn2SiguientePagina, java.awt.BorderLayout.EAST);
+
+        btn2PaginaAnterior.setBackground(new java.awt.Color(255, 255, 255));
+        btn2PaginaAnterior.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn2PaginaAnterior.setForeground(new java.awt.Color(180, 15, 15));
+        btn2PaginaAnterior.setText("Página anterior");
+        btn2PaginaAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2PaginaAnteriorActionPerformed(evt);
+            }
+        });
+        panelInferior2.add(btn2PaginaAnterior, java.awt.BorderLayout.WEST);
+
+        paginaExperienciaYMotivacion.add(panelInferior2, java.awt.BorderLayout.PAGE_END);
+
+        mainPanel.add(paginaExperienciaYMotivacion, "card3");
+
+        paginaHabilidades.setBackground(new java.awt.Color(255, 255, 255));
+        paginaHabilidades.setPreferredSize(new java.awt.Dimension(1080, 90));
+        paginaHabilidades.setLayout(new java.awt.BorderLayout());
+
+        panelSuperior3.setBackground(new java.awt.Color(180, 15, 15));
+        panelSuperior3.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        panelSuperior3.add(iconoBomberos3, java.awt.BorderLayout.CENTER);
+
+        panelPestañas3.setBackground(new java.awt.Color(137, 10, 10));
+
+        btn3DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn3DatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+        btn3DatosPersonales.setText("DATOS PERSONALES");
+        btn3DatosPersonales.setActionCommand("");
+        btn3DatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3DatosPersonalesActionPerformed(evt);
+            }
+        });
+        panelPestañas3.add(btn3DatosPersonales);
+
+        btn3Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn3Contacto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3Contacto.setForeground(new java.awt.Color(255, 255, 255));
+        btn3Contacto.setText("CONTACTO");
+        btn3Contacto.setActionCommand("");
+        btn3Contacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ContactoActionPerformed(evt);
+            }
+        });
+        panelPestañas3.add(btn3Contacto);
+
+        btn3ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn3ExperienciaYMotivacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn3ExperienciaYMotivacion.setText("EXPERIENCIA Y MOTIVACIÓN");
+        btn3ExperienciaYMotivacion.setActionCommand("");
+        btn3ExperienciaYMotivacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ExperienciaYMotivacionActionPerformed(evt);
+            }
+        });
+        panelPestañas3.add(btn3ExperienciaYMotivacion);
+
+        btn3Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn3Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+        btn3Habilidades.setText("HABILIDADES");
+        btn3Habilidades.setActionCommand("");
+        btn3Habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3HabilidadesActionPerformed(evt);
+            }
+        });
+        panelPestañas3.add(btn3Habilidades);
+
+        btn3Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn3Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn3Documentacion.setText("DOCUMENTACIÓN");
+        btn3Documentacion.setActionCommand("");
+        btn3Documentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3DocumentacionActionPerformed(evt);
+            }
+        });
+        panelPestañas3.add(btn3Documentacion);
+
+        panelSuperior3.add(panelPestañas3, java.awt.BorderLayout.PAGE_END);
+
+        paginaHabilidades.add(panelSuperior3, java.awt.BorderLayout.NORTH);
+
+        panelScroll3.setBackground(new java.awt.Color(255, 255, 255));
+        panelScroll3.setLayout(new java.awt.BorderLayout());
+
+        scroll3.setForeground(new java.awt.Color(153, 153, 153));
+        scroll3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelContenido3.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenido3.setMaximumSize(new java.awt.Dimension(600, 2000));
+        panelContenido3.setPreferredSize(new java.awt.Dimension(610, 1350));
+
+        panelFormulario3.setBackground(new java.awt.Color(255, 255, 255));
+        panelFormulario3.setPreferredSize(new java.awt.Dimension(600, 1350));
+        panelFormulario3.setLayout(new java.awt.GridLayout(0, 1, 50, 10));
+
+        HABILIDADES.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES.setForeground(new java.awt.Color(0, 0, 0));
+        HABILIDADES.setText("<html>SECCION: HABILIDADES</html>");
+        HABILIDADES.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES);
+
+        HABILIDADES1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES1.setForeground(new java.awt.Color(0, 0, 0));
+        HABILIDADES1.setText("<html>De contar con una o mas de las sgtes. habilidades o saberes, por favor, marcar: <br> </html>");
+        HABILIDADES1.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES1.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES1.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES1);
+
+        HABILIDADES2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES2.setForeground(new java.awt.Color(180, 15, 15));
+        HABILIDADES2.setText("<html>Habilidades de emergencia y rescate </html>");
+        HABILIDADES2.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES2.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES2.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES2);
+
+        btnSkillPrimerosAuxiliosBasicos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos.setText("Primeros auxilios básicos");
+        btnSkillPrimerosAuxiliosBasicos.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicosActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos);
+
+        btnSkillRCP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillRCP.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillRCP.setText("Reanimación cardiopulmonar (RCP)");
+        btnSkillRCP.setName(""); // NOI18N
+        btnSkillRCP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillRCPActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillRCP);
+
+        btnSkillControlHemorragias.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillControlHemorragias.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillControlHemorragias.setText("Control de hemorragias");
+        btnSkillControlHemorragias.setName(""); // NOI18N
+        btnSkillControlHemorragias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillControlHemorragiasActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillControlHemorragias);
+
+        btnSkillFracturas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillFracturas.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillFracturas.setText("Inmovilización de fracturas");
+        btnSkillFracturas.setName(""); // NOI18N
+        btnSkillFracturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillFracturasActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillFracturas);
+
+        btnSkillEvacHeridos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillEvacHeridos.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillEvacHeridos.setText("Evacuación de heridos");
+        btnSkillEvacHeridos.setName(""); // NOI18N
+        btnSkillEvacHeridos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillEvacHeridosActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillEvacHeridos);
+
+        btnSkillBusqRescate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillBusqRescate.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillBusqRescate.setText("Búsqueda y rescate");
+        btnSkillBusqRescate.setName(""); // NOI18N
+        btnSkillBusqRescate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillBusqRescateActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillBusqRescate);
+
+        btnSkillRescVehicular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillRescVehicular.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillRescVehicular.setText("Rescate vehicular");
+        btnSkillRescVehicular.setName(""); // NOI18N
+        btnSkillRescVehicular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillRescVehicularActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillRescVehicular);
+
+        btnSkillRescAcuatico.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillRescAcuatico.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillRescAcuatico.setText("Rescate acuático");
+        btnSkillRescAcuatico.setName(""); // NOI18N
+        btnSkillRescAcuatico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillRescAcuaticoActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillRescAcuatico);
+
+        btnSkillRescAltura.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillRescAltura.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillRescAltura.setText("Rescate en altura");
+        btnSkillRescAltura.setName(""); // NOI18N
+        btnSkillRescAltura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillRescAlturaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillRescAltura);
+
+        btnSkillCampoSelva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillCampoSelva.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillCampoSelva.setText("Supervivencia en campo o selva");
+        btnSkillCampoSelva.setName(""); // NOI18N
+        btnSkillCampoSelva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillCampoSelvaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillCampoSelva);
+
+        HABILIDADES3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES3.setForeground(new java.awt.Color(180, 15, 15));
+        HABILIDADES3.setText("<html>Conocimiento de incendios</html>");
+        HABILIDADES3.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES3.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES3.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES3);
+
+        btnSkillExtintores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillExtintores.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillExtintores.setText("Uso de extintores");
+        btnSkillExtintores.setName(""); // NOI18N
+        btnSkillExtintores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillExtintoresActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillExtintores);
+
+        btnSkillManguerasAgua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillManguerasAgua.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillManguerasAgua.setText("Manejo de mangueras y equipos de agua");
+        btnSkillManguerasAgua.setName(""); // NOI18N
+        btnSkillManguerasAgua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillManguerasAguaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillManguerasAgua);
+
+        btnSkillUsoERA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillUsoERA.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillUsoERA.setText("Uso de equipos de respiración autónoma (ERA)");
+        btnSkillUsoERA.setName(""); // NOI18N
+        btnSkillUsoERA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillUsoERAActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillUsoERA);
+
+        btnSkillMatInflamables.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillMatInflamables.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillMatInflamables.setText("Identificación de materiales inflamables");
+        btnSkillMatInflamables.setName(""); // NOI18N
+        btnSkillMatInflamables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillMatInflamablesActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillMatInflamables);
+
+        btnSkillIncendiosForestales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillIncendiosForestales.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillIncendiosForestales.setText("Control de incendios forestales");
+        btnSkillIncendiosForestales.setName(""); // NOI18N
+        btnSkillIncendiosForestales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillIncendiosForestalesActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillIncendiosForestales);
+
+        btnSkillIncendiosEstructurales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillIncendiosEstructurales.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillIncendiosEstructurales.setText("Control de incendios estructurales");
+        btnSkillIncendiosEstructurales.setName(""); // NOI18N
+        btnSkillIncendiosEstructurales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillIncendiosEstructuralesActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillIncendiosEstructurales);
+
+        btnSkillIncendiosVehiculares.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillIncendiosVehiculares.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillIncendiosVehiculares.setText("Control de incendios vehiculares");
+        btnSkillIncendiosVehiculares.setName(""); // NOI18N
+        btnSkillIncendiosVehiculares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillIncendiosVehicularesActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillIncendiosVehiculares);
+
+        btnSkillPrevIncendiosDomesticos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrevIncendiosDomesticos.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrevIncendiosDomesticos.setText("Prevención de incendios domésticos");
+        btnSkillPrevIncendiosDomesticos.setName(""); // NOI18N
+        btnSkillPrevIncendiosDomesticos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrevIncendiosDomesticosActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrevIncendiosDomesticos);
+
+        HABILIDADES4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES4.setForeground(new java.awt.Color(180, 15, 15));
+        HABILIDADES4.setText("<html>Habilidades técnicas</html>");
+        HABILIDADES4.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES4.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES4.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES4);
+
+        btnSkillMecanica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillMecanica.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillMecanica.setText("Mecánica básica");
+        btnSkillMecanica.setName(""); // NOI18N
+        btnSkillMecanica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillMecanicaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillMecanica);
+
+        btnSkillElectricidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillElectricidad.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillElectricidad.setText("Electricidad básica");
+        btnSkillElectricidad.setName(""); // NOI18N
+        btnSkillElectricidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillElectricidadActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillElectricidad);
+
+        btnSkillCarpinteria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillCarpinteria.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillCarpinteria.setText("Carpintería");
+        btnSkillCarpinteria.setName(""); // NOI18N
+        btnSkillCarpinteria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillCarpinteriaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillCarpinteria);
+
+        btnSkillAlbanileria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillAlbanileria.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillAlbanileria.setText("Albañilería");
+        btnSkillAlbanileria.setName(""); // NOI18N
+        btnSkillAlbanileria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillAlbanileriaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillAlbanileria);
+
+        btnSkillSoldadura.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillSoldadura.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillSoldadura.setText("Soldadura");
+        btnSkillSoldadura.setName(""); // NOI18N
+        btnSkillSoldadura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillSoldaduraActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillSoldadura);
+
+        btnSkillHerramientas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillHerramientas.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillHerramientas.setText("Uso de herramientas manuales y eléctricas");
+        btnSkillHerramientas.setName(""); // NOI18N
+        btnSkillHerramientas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillHerramientasActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillHerramientas);
+
+        btnSkillConduccionVehicPesados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillConduccionVehicPesados.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillConduccionVehicPesados.setText("Conducción de vehículos pesados");
+        btnSkillConduccionVehicPesados.setName(""); // NOI18N
+        btnSkillConduccionVehicPesados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillConduccionVehicPesadosActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillConduccionVehicPesados);
+
+        btnSkillRadioComunicaciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillRadioComunicaciones.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillRadioComunicaciones.setText("Radio y comunicaciones");
+        btnSkillRadioComunicaciones.setName(""); // NOI18N
+        btnSkillRadioComunicaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillRadioComunicacionesActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillRadioComunicaciones);
+
+        HABILIDADES5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES5.setForeground(new java.awt.Color(180, 15, 15));
+        HABILIDADES5.setText("<html>Habilidades de organización y liderazgo</html>");
+        HABILIDADES5.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES5.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES5.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES5);
+
+        btnSkillCoordinacionGrupos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillCoordinacionGrupos.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillCoordinacionGrupos.setText("Coordinación de grupos");
+        btnSkillCoordinacionGrupos.setName(""); // NOI18N
+        btnSkillCoordinacionGrupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillCoordinacionGruposActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillCoordinacionGrupos);
+
+        btnSkillGestionEmergencias.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillGestionEmergencias.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillGestionEmergencias.setText("Gestión de emergencias");
+        btnSkillGestionEmergencias.setName(""); // NOI18N
+        btnSkillGestionEmergencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillGestionEmergenciasActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillGestionEmergencias);
+
+        btnSkillLogisticaSuministros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillLogisticaSuministros.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillLogisticaSuministros.setText("Logística y suministros");
+        btnSkillLogisticaSuministros.setName(""); // NOI18N
+        btnSkillLogisticaSuministros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillLogisticaSuministrosActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillLogisticaSuministros);
+
+        btnSkillComunicacionEfectiva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillComunicacionEfectiva.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillComunicacionEfectiva.setText("Comunicación efectiva");
+        btnSkillComunicacionEfectiva.setName(""); // NOI18N
+        btnSkillComunicacionEfectiva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillComunicacionEfectivaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillComunicacionEfectiva);
+
+        btnSkillCapacitacionEnsenanza.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillCapacitacionEnsenanza.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillCapacitacionEnsenanza.setText("Capacitación o enseñanza");
+        btnSkillCapacitacionEnsenanza.setName(""); // NOI18N
+        btnSkillCapacitacionEnsenanza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillCapacitacionEnsenanzaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillCapacitacionEnsenanza);
+
+        btnSkillRutasEvacuaciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillRutasEvacuaciones.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillRutasEvacuaciones.setText("Planificación de rutas y/o evacuaciones");
+        btnSkillRutasEvacuaciones.setName(""); // NOI18N
+        btnSkillRutasEvacuaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillRutasEvacuacionesActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillRutasEvacuaciones);
+
+        HABILIDADES6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES6.setForeground(new java.awt.Color(180, 15, 15));
+        HABILIDADES6.setText("<html>Conocimiento complementario</html>");
+        HABILIDADES6.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES6.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES6.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES6);
+
+        btnSkillInformatica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillInformatica.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillInformatica.setText("Informática");
+        btnSkillInformatica.setName(""); // NOI18N
+        btnSkillInformatica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillInformaticaActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillInformatica);
+
+        btnSkillPrimerosAuxiliosBasicos34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos34.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos34.setText("Inglés avanzado");
+        btnSkillPrimerosAuxiliosBasicos34.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos34ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos34);
+
+        btnSkillPrimerosAuxiliosBasicos35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos35.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos35.setText("Documentación");
+        btnSkillPrimerosAuxiliosBasicos35.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos35ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos35);
+
+        btnSkillPrimerosAuxiliosBasicos33.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos33.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos33.setText("Fotografía");
+        btnSkillPrimerosAuxiliosBasicos33.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos33ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos33);
+
+        HABILIDADES7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES7.setForeground(new java.awt.Color(180, 15, 15));
+        HABILIDADES7.setText("<html>Condición física</html>");
+        HABILIDADES7.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES7.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES7.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES7);
+
+        btnSkillPrimerosAuxiliosBasicos36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos36.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos36.setText("Entrenamiento físico regular");
+        btnSkillPrimerosAuxiliosBasicos36.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos36ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos36);
+
+        btnSkillPrimerosAuxiliosBasicos37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos37.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos37.setText("Natación");
+        btnSkillPrimerosAuxiliosBasicos37.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos37ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos37);
+
+        btnSkillPrimerosAuxiliosBasicos38.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos38.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos38.setText("Escalada");
+        btnSkillPrimerosAuxiliosBasicos38.setToolTipText("");
+        btnSkillPrimerosAuxiliosBasicos38.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos38ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos38);
+
+        btnSkillPrimerosAuxiliosBasicos39.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos39.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos39.setText("Marcha o caminata larga");
+        btnSkillPrimerosAuxiliosBasicos39.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos39ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos39);
+
+        btnSkillPrimerosAuxiliosBasicos40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos40.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillPrimerosAuxiliosBasicos40.setText("Tareas de carga o levantamiento de peso");
+        btnSkillPrimerosAuxiliosBasicos40.setName(""); // NOI18N
+        btnSkillPrimerosAuxiliosBasicos40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkillPrimerosAuxiliosBasicos40ActionPerformed(evt);
+            }
+        });
+        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos40);
+
+        HABILIDADES8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        HABILIDADES8.setForeground(new java.awt.Color(0, 0, 0));
+        HABILIDADES8.setText("<html> <br> </html>");
+        HABILIDADES8.setMaximumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES8.setMinimumSize(new java.awt.Dimension(90, 60));
+        HABILIDADES8.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario3.add(HABILIDADES8);
+
+        panelContenido3.add(panelFormulario3);
+
+        scroll3.setViewportView(panelContenido3);
+
+        panelScroll3.add(scroll3, java.awt.BorderLayout.CENTER);
+
+        paginaHabilidades.add(panelScroll3, java.awt.BorderLayout.CENTER);
+
+        panelInferior3.setBackground(new java.awt.Color(180, 15, 15));
+        panelInferior3.setLayout(new java.awt.BorderLayout());
+
+        btn3SiguientePagina.setBackground(new java.awt.Color(255, 255, 255));
+        btn3SiguientePagina.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3SiguientePagina.setForeground(new java.awt.Color(180, 15, 15));
+        btn3SiguientePagina.setText("Siguiente página");
+        btn3SiguientePagina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3SiguientePaginaActionPerformed(evt);
+            }
+        });
+        panelInferior3.add(btn3SiguientePagina, java.awt.BorderLayout.EAST);
+
+        btn3PaginaAnterior.setBackground(new java.awt.Color(255, 255, 255));
+        btn3PaginaAnterior.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn3PaginaAnterior.setForeground(new java.awt.Color(180, 15, 15));
+        btn3PaginaAnterior.setText("Página anterior");
+        btn3PaginaAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3PaginaAnteriorActionPerformed(evt);
+            }
+        });
+        panelInferior3.add(btn3PaginaAnterior, java.awt.BorderLayout.WEST);
+
+        paginaHabilidades.add(panelInferior3, java.awt.BorderLayout.PAGE_END);
+
+        mainPanel.add(paginaHabilidades, "card3");
+
+        paginaDocumentacion.setBackground(new java.awt.Color(255, 255, 255));
+        paginaDocumentacion.setPreferredSize(new java.awt.Dimension(1080, 90));
+        paginaDocumentacion.setLayout(new java.awt.BorderLayout());
+
+        panelSuperior4.setBackground(new java.awt.Color(180, 15, 15));
+        panelSuperior4.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        panelSuperior4.add(iconoBomberos4, java.awt.BorderLayout.CENTER);
+
+        panelPestañas4.setBackground(new java.awt.Color(137, 10, 10));
+
+        btn4DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn4DatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+        btn4DatosPersonales.setText("DATOS PERSONALES");
+        btn4DatosPersonales.setActionCommand("");
+        btn4DatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4DatosPersonalesActionPerformed(evt);
+            }
+        });
+        panelPestañas4.add(btn4DatosPersonales);
+
+        btn4Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn4Contacto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4Contacto.setForeground(new java.awt.Color(255, 255, 255));
+        btn4Contacto.setText("CONTACTO");
+        btn4Contacto.setActionCommand("");
+        btn4Contacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ContactoActionPerformed(evt);
+            }
+        });
+        panelPestañas4.add(btn4Contacto);
+
+        btn4ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn4ExperienciaYMotivacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn4ExperienciaYMotivacion.setText("EXPERIENCIA Y MOTIVACIÓN");
+        btn4ExperienciaYMotivacion.setActionCommand("");
+        btn4ExperienciaYMotivacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ExperienciaYMotivacionActionPerformed(evt);
+            }
+        });
+        panelPestañas4.add(btn4ExperienciaYMotivacion);
+
+        btn4Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn4Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+        btn4Habilidades.setText("HABILIDADES");
+        btn4Habilidades.setActionCommand("");
+        btn4Habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4HabilidadesActionPerformed(evt);
+            }
+        });
+        panelPestañas4.add(btn4Habilidades);
+
+        btn4Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn4Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn4Documentacion.setText("DOCUMENTACIÓN");
+        btn4Documentacion.setActionCommand("");
+        btn4Documentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4DocumentacionActionPerformed(evt);
+            }
+        });
+        panelPestañas4.add(btn4Documentacion);
+
+        panelSuperior4.add(panelPestañas4, java.awt.BorderLayout.PAGE_END);
+
+        paginaDocumentacion.add(panelSuperior4, java.awt.BorderLayout.NORTH);
+
+        panelScroll4.setBackground(new java.awt.Color(255, 255, 255));
+        panelScroll4.setLayout(new java.awt.BorderLayout());
+
+        scroll4.setForeground(new java.awt.Color(153, 153, 153));
+        scroll4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelContenido4.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenido4.setMaximumSize(new java.awt.Dimension(600, 2000));
+        panelContenido4.setPreferredSize(new java.awt.Dimension(610, 500));
+
+        panelFormulario4.setBackground(new java.awt.Color(255, 255, 255));
+        panelFormulario4.setMinimumSize(new java.awt.Dimension(398, 700));
+        panelFormulario4.setPreferredSize(new java.awt.Dimension(600, 480));
+        panelFormulario4.setLayout(new java.awt.GridLayout(0, 2, 50, 30));
+
+        ESPACIO11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO11.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario4.add(ESPACIO11);
+
+        ESPACIO12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO12.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario4.add(ESPACIO12);
+
+        DATOSPERSONALES3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DATOSPERSONALES3.setForeground(new java.awt.Color(0, 0, 0));
+        DATOSPERSONALES3.setText("<html>SECCIÓN: DOCUMENTACION</html>");
+        DATOSPERSONALES3.setMaximumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES3.setMinimumSize(new java.awt.Dimension(90, 60));
+        DATOSPERSONALES3.setPreferredSize(new java.awt.Dimension(90, 30));
+        panelFormulario4.add(DATOSPERSONALES3);
+
+        ESPACIO13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO13.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario4.add(ESPACIO13);
+
+        lblAdjuntarIdentificacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAdjuntarIdentificacion.setForeground(new java.awt.Color(0, 0, 0));
+        lblAdjuntarIdentificacion.setText("<html>DNI, libreta militar o partida de <br>nacimiento: <html>");
+        panelFormulario4.add(lblAdjuntarIdentificacion);
+
+        btnAdjuntarIdentificacion.setBackground(new java.awt.Color(180, 15, 15));
+        btnAdjuntarIdentificacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdjuntarIdentificacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdjuntarIdentificacion.setText("+ Subir un Archivo...");
+        panelFormulario4.add(btnAdjuntarIdentificacion);
+
+        lblAdjuntarIdentificacion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAdjuntarIdentificacion1.setForeground(new java.awt.Color(0, 0, 0));
+        lblAdjuntarIdentificacion1.setText("<html>Certificado domiciliario: <html>");
+        panelFormulario4.add(lblAdjuntarIdentificacion1);
+
+        btnAdjuntarIdentificacion1.setBackground(new java.awt.Color(180, 15, 15));
+        btnAdjuntarIdentificacion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdjuntarIdentificacion1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdjuntarIdentificacion1.setText("+ Subir un Archivo...");
+        panelFormulario4.add(btnAdjuntarIdentificacion1);
+
+        lblAdjuntarIdentificacion2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAdjuntarIdentificacion2.setForeground(new java.awt.Color(0, 0, 0));
+        lblAdjuntarIdentificacion2.setText("<html>Constancia de estudios o trabajo: <html>");
+        panelFormulario4.add(lblAdjuntarIdentificacion2);
+
+        btnAdjuntarIdentificacion2.setBackground(new java.awt.Color(180, 15, 15));
+        btnAdjuntarIdentificacion2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdjuntarIdentificacion2.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdjuntarIdentificacion2.setText("+ Subir un Archivo...");
+        panelFormulario4.add(btnAdjuntarIdentificacion2);
+
+        lblAdjuntarIdentificacion3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAdjuntarIdentificacion3.setForeground(new java.awt.Color(0, 0, 0));
+        lblAdjuntarIdentificacion3.setText("<html>Ficha única de postulante: <html>");
+        panelFormulario4.add(lblAdjuntarIdentificacion3);
+
+        btnAdjuntarIdentificacion3.setBackground(new java.awt.Color(180, 15, 15));
+        btnAdjuntarIdentificacion3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdjuntarIdentificacion3.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdjuntarIdentificacion3.setText("+ Subir un Archivo...");
+        panelFormulario4.add(btnAdjuntarIdentificacion3);
+
+        lblAdjuntarIdentificacion4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAdjuntarIdentificacion4.setForeground(new java.awt.Color(0, 0, 0));
+        lblAdjuntarIdentificacion4.setText("<html>Declaracion jurada de antecedentes <br>penales o policiales<html>");
+        panelFormulario4.add(lblAdjuntarIdentificacion4);
+
+        btnAdjuntarIdentificacion4.setBackground(new java.awt.Color(180, 15, 15));
+        btnAdjuntarIdentificacion4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdjuntarIdentificacion4.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdjuntarIdentificacion4.setText("+ Subir un Archivo...");
+        panelFormulario4.add(btnAdjuntarIdentificacion4);
+
+        lblAdjuntarIdentificacion5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAdjuntarIdentificacion5.setForeground(new java.awt.Color(102, 102, 102));
+        lblAdjuntarIdentificacion5.setText("<html>(Solo menores de edad) <br> Autorización Notarial<html>");
+        panelFormulario4.add(lblAdjuntarIdentificacion5);
+
+        btnAdjuntarIdentificacion5.setBackground(new java.awt.Color(153, 153, 153));
+        btnAdjuntarIdentificacion5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdjuntarIdentificacion5.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdjuntarIdentificacion5.setText("+ Subir un Archivo...");
+        panelFormulario4.add(btnAdjuntarIdentificacion5);
+
+        panelContenido4.add(panelFormulario4);
+
+        scroll4.setViewportView(panelContenido4);
+
+        panelScroll4.add(scroll4, java.awt.BorderLayout.CENTER);
+
+        paginaDocumentacion.add(panelScroll4, java.awt.BorderLayout.CENTER);
+
+        panelInferior4.setBackground(new java.awt.Color(180, 15, 15));
+        panelInferior4.setLayout(new java.awt.BorderLayout());
+
+        btn4EntregarFormulario.setBackground(new java.awt.Color(255, 255, 255));
+        btn4EntregarFormulario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4EntregarFormulario.setForeground(new java.awt.Color(180, 15, 15));
+        btn4EntregarFormulario.setText("Entregar Formulario");
+        btn4EntregarFormulario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4EntregarFormularioActionPerformed(evt);
+            }
+        });
+        panelInferior4.add(btn4EntregarFormulario, java.awt.BorderLayout.EAST);
+
+        btn4PaginaAnterior.setBackground(new java.awt.Color(255, 255, 255));
+        btn4PaginaAnterior.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn4PaginaAnterior.setForeground(new java.awt.Color(180, 15, 15));
+        btn4PaginaAnterior.setText("Página anterior");
+        btn4PaginaAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4PaginaAnteriorActionPerformed(evt);
+            }
+        });
+        panelInferior4.add(btn4PaginaAnterior, java.awt.BorderLayout.WEST);
+
+        paginaDocumentacion.add(panelInferior4, java.awt.BorderLayout.PAGE_END);
+
+        mainPanel.add(paginaDocumentacion, "card3");
+
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -583,7 +2007,9 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ContactoActionPerformed
 
     private void btn0HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0HabilidadesActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaHabilidades");
+        state = 3;
     }//GEN-LAST:event_btn0HabilidadesActionPerformed
 
     private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
@@ -607,7 +2033,9 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0DatosPersonalesActionPerformed
 
     private void btn0ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ExperienciaYMotivacionActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaExperienciaYMotivacion");
+        state = 2;
     }//GEN-LAST:event_btn0ExperienciaYMotivacionActionPerformed
 
     private void btn1DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1DatosPersonalesActionPerformed
@@ -617,16 +2045,20 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1DatosPersonalesActionPerformed
 
     private void btn1ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ContactoActionPerformed
-        // TODO add your handling code here:
+        //do nothing
     }//GEN-LAST:event_btn1ContactoActionPerformed
 
     private void btn1HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1HabilidadesActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaHabilidades");
+        state = 3;
     }//GEN-LAST:event_btn1HabilidadesActionPerformed
 
-    private void btn1ExperienciaYMotivacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ExperienciaYMotivacion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn1ExperienciaYMotivacion1ActionPerformed
+    private void btn1ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ExperienciaYMotivacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaExperienciaYMotivacion");
+        state = 2;
+    }//GEN-LAST:event_btn1ExperienciaYMotivacionActionPerformed
 
     private void txtCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorActionPerformed
         // TODO add your handling code here:
@@ -637,7 +2069,9 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelActionPerformed
 
     private void btn1SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1SiguientePaginaActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaExperienciaYMotivacion");
+        state = 2;
     }//GEN-LAST:event_btn1SiguientePaginaActionPerformed
 
     private void btn0SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0SiguientePaginaActionPerformed
@@ -659,6 +2093,316 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private void txtRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRefActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRefActionPerformed
+
+    private void btn2DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2DatosPersonalesActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;  
+    }//GEN-LAST:event_btn2DatosPersonalesActionPerformed
+
+    private void btn2ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ContactoActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaContacto");
+        state = 1;
+    }//GEN-LAST:event_btn2ContactoActionPerformed
+
+    private void btn2HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2HabilidadesActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaHabilidades");
+        state = 3;
+    }//GEN-LAST:event_btn2HabilidadesActionPerformed
+
+    private void btn2ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ExperienciaYMotivacionActionPerformed
+        //do nothing
+    }//GEN-LAST:event_btn2ExperienciaYMotivacionActionPerformed
+
+    private void btn2SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2SiguientePaginaActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaHabilidades");
+        state = 3;
+    }//GEN-LAST:event_btn2SiguientePaginaActionPerformed
+
+    private void btn2PaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2PaginaAnteriorActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaContacto");
+        state = 1;
+    }//GEN-LAST:event_btn2PaginaAnteriorActionPerformed
+
+    private void btnVolSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolSiActionPerformed
+
+    private void btnEntrSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntrSiActionPerformed
+
+    private void btnCompCapaSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompCapaSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCompCapaSiActionPerformed
+
+    private void btnSexMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSexMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSexMasculinoActionPerformed
+
+    private void btn3PaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3PaginaAnteriorActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaExperienciaYMotivacion");
+        state = 2;
+    }//GEN-LAST:event_btn3PaginaAnteriorActionPerformed
+
+    private void btn3SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3SiguientePaginaActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDocumentacion");
+        state = 4;
+    }//GEN-LAST:event_btn3SiguientePaginaActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos40ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos39ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos39ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos38ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos38ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos37ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos36ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos33ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos35ActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicos34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos34ActionPerformed
+
+    private void btnSkillInformaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillInformaticaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillInformaticaActionPerformed
+
+    private void btnSkillRutasEvacuacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillRutasEvacuacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillRutasEvacuacionesActionPerformed
+
+    private void btnSkillCapacitacionEnsenanzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillCapacitacionEnsenanzaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillCapacitacionEnsenanzaActionPerformed
+
+    private void btnSkillComunicacionEfectivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillComunicacionEfectivaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillComunicacionEfectivaActionPerformed
+
+    private void btnSkillLogisticaSuministrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillLogisticaSuministrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillLogisticaSuministrosActionPerformed
+
+    private void btnSkillGestionEmergenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillGestionEmergenciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillGestionEmergenciasActionPerformed
+
+    private void btnSkillCoordinacionGruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillCoordinacionGruposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillCoordinacionGruposActionPerformed
+
+    private void btnSkillRadioComunicacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillRadioComunicacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillRadioComunicacionesActionPerformed
+
+    private void btnSkillConduccionVehicPesadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillConduccionVehicPesadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillConduccionVehicPesadosActionPerformed
+
+    private void btnSkillHerramientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillHerramientasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillHerramientasActionPerformed
+
+    private void btnSkillSoldaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillSoldaduraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillSoldaduraActionPerformed
+
+    private void btnSkillAlbanileriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillAlbanileriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillAlbanileriaActionPerformed
+
+    private void btnSkillCarpinteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillCarpinteriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillCarpinteriaActionPerformed
+
+    private void btnSkillElectricidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillElectricidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillElectricidadActionPerformed
+
+    private void btnSkillMecanicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillMecanicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillMecanicaActionPerformed
+
+    private void btnSkillPrevIncendiosDomesticosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrevIncendiosDomesticosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrevIncendiosDomesticosActionPerformed
+
+    private void btnSkillIncendiosVehicularesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillIncendiosVehicularesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillIncendiosVehicularesActionPerformed
+
+    private void btnSkillIncendiosEstructuralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillIncendiosEstructuralesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillIncendiosEstructuralesActionPerformed
+
+    private void btnSkillIncendiosForestalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillIncendiosForestalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillIncendiosForestalesActionPerformed
+
+    private void btnSkillMatInflamablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillMatInflamablesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillMatInflamablesActionPerformed
+
+    private void btnSkillUsoERAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillUsoERAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillUsoERAActionPerformed
+
+    private void btnSkillManguerasAguaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillManguerasAguaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillManguerasAguaActionPerformed
+
+    private void btnSkillExtintoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillExtintoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillExtintoresActionPerformed
+
+    private void btnSkillCampoSelvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillCampoSelvaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillCampoSelvaActionPerformed
+
+    private void btnSkillRescAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillRescAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillRescAlturaActionPerformed
+
+    private void btnSkillRescAcuaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillRescAcuaticoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillRescAcuaticoActionPerformed
+
+    private void btnSkillRescVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillRescVehicularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillRescVehicularActionPerformed
+
+    private void btnSkillBusqRescateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillBusqRescateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillBusqRescateActionPerformed
+
+    private void btnSkillEvacHeridosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillEvacHeridosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillEvacHeridosActionPerformed
+
+    private void btnSkillFracturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillFracturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillFracturasActionPerformed
+
+    private void btnSkillControlHemorragiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillControlHemorragiasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillControlHemorragiasActionPerformed
+
+    private void btnSkillRCPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillRCPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillRCPActionPerformed
+
+    private void btnSkillPrimerosAuxiliosBasicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicosActionPerformed
+
+    private void btn3HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3HabilidadesActionPerformed
+        //Do nothing
+    }//GEN-LAST:event_btn3HabilidadesActionPerformed
+
+    private void btn3ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ExperienciaYMotivacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaExperienciaYMotivacion");
+        state = 2;
+    }//GEN-LAST:event_btn3ExperienciaYMotivacionActionPerformed
+
+    private void btn3ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ContactoActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaContacto");
+        state = 1;
+    }//GEN-LAST:event_btn3ContactoActionPerformed
+
+    private void btn3DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3DatosPersonalesActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;
+    }//GEN-LAST:event_btn3DatosPersonalesActionPerformed
+
+    private void btn0DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0DocumentacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDocumentacion");
+        state = 4;
+    }//GEN-LAST:event_btn0DocumentacionActionPerformed
+
+    private void btn1DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1DocumentacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDocumentacion");
+        state = 4;
+    }//GEN-LAST:event_btn1DocumentacionActionPerformed
+
+    private void btn2DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2DocumentacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDocumentacion");
+        state = 4;
+    }//GEN-LAST:event_btn2DocumentacionActionPerformed
+
+    private void btn3DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3DocumentacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDocumentacion");
+        state = 4;
+    }//GEN-LAST:event_btn3DocumentacionActionPerformed
+
+    private void btn4DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4DatosPersonalesActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;
+    }//GEN-LAST:event_btn4DatosPersonalesActionPerformed
+
+    private void btn4ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ContactoActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaContacto");
+        state = 1;
+    }//GEN-LAST:event_btn4ContactoActionPerformed
+
+    private void btn4ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ExperienciaYMotivacionActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaExperienciaYMotivacion");
+        state = 2;
+    }//GEN-LAST:event_btn4ExperienciaYMotivacionActionPerformed
+
+    private void btn4HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4HabilidadesActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaHabilidades");
+        state = 3;
+    }//GEN-LAST:event_btn4HabilidadesActionPerformed
+
+    private void btn4DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4DocumentacionActionPerformed
+        //do nothing
+    }//GEN-LAST:event_btn4DocumentacionActionPerformed
+
+    private void btn4PaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4PaginaAnteriorActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaHabilidades");
+        state = 3;
+    }//GEN-LAST:event_btn4PaginaAnteriorActionPerformed
+
+    private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4EntregarFormularioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn4EntregarFormularioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -686,10 +2430,34 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ESPACIO1;
+    private javax.swing.JLabel DATOSPERSONALES;
+    private javax.swing.JLabel DATOSPERSONALES1;
+    private javax.swing.JLabel DATOSPERSONALES2;
+    private javax.swing.JLabel DATOSPERSONALES3;
+    private javax.swing.JLabel ESPACIO10;
+    private javax.swing.JLabel ESPACIO11;
+    private javax.swing.JLabel ESPACIO12;
+    private javax.swing.JLabel ESPACIO13;
     private javax.swing.JLabel ESPACIO2;
     private javax.swing.JLabel ESPACIO3;
     private javax.swing.JLabel ESPACIO4;
+    private javax.swing.JLabel ESPACIO5;
+    private javax.swing.JLabel ESPACIO6;
+    private javax.swing.JLabel ESPACIO7;
+    private javax.swing.JLabel ESPACIO8;
+    private javax.swing.JLabel ESPACIO9;
+    private javax.swing.JLabel HABILIDADES;
+    private javax.swing.JLabel HABILIDADES1;
+    private javax.swing.JLabel HABILIDADES2;
+    private javax.swing.JLabel HABILIDADES3;
+    private javax.swing.JLabel HABILIDADES4;
+    private javax.swing.JLabel HABILIDADES5;
+    private javax.swing.JLabel HABILIDADES6;
+    private javax.swing.JLabel HABILIDADES7;
+    private javax.swing.JLabel HABILIDADES8;
+    private javax.swing.JLabel SECCION1;
+    private javax.swing.JLabel SECCION2;
+    private javax.swing.JLabel SECCION3;
     private javax.swing.JButton btn0Contacto;
     private javax.swing.JButton btn0DatosPersonales;
     private javax.swing.JButton btn0Documentacion;
@@ -699,61 +2467,195 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JButton btn1Contacto;
     private javax.swing.JButton btn1DatosPersonales;
     private javax.swing.JButton btn1Documentacion;
-    private javax.swing.JButton btn1ExperienciaYMotivacion1;
+    private javax.swing.JButton btn1ExperienciaYMotivacion;
     private javax.swing.JButton btn1Habilidades;
     private javax.swing.JButton btn1PaginaAnterior;
     private javax.swing.JButton btn1SiguientePagina;
+    private javax.swing.JButton btn2Contacto;
+    private javax.swing.JButton btn2DatosPersonales;
+    private javax.swing.JButton btn2Documentacion;
+    private javax.swing.JButton btn2ExperienciaYMotivacion;
+    private javax.swing.JButton btn2Habilidades;
+    private javax.swing.JButton btn2PaginaAnterior;
+    private javax.swing.JButton btn2SiguientePagina;
+    private javax.swing.JButton btn3Contacto;
+    private javax.swing.JButton btn3DatosPersonales;
+    private javax.swing.JButton btn3Documentacion;
+    private javax.swing.JButton btn3ExperienciaYMotivacion;
+    private javax.swing.JButton btn3Habilidades;
+    private javax.swing.JButton btn3PaginaAnterior;
+    private javax.swing.JButton btn3SiguientePagina;
+    private javax.swing.JButton btn4Contacto;
+    private javax.swing.JButton btn4DatosPersonales;
+    private javax.swing.JButton btn4Documentacion;
+    private javax.swing.JButton btn4EntregarFormulario;
+    private javax.swing.JButton btn4ExperienciaYMotivacion;
+    private javax.swing.JButton btn4Habilidades;
+    private javax.swing.JButton btn4PaginaAnterior;
+    private javax.swing.JButton btnAdjuntarIdentificacion;
+    private javax.swing.JButton btnAdjuntarIdentificacion1;
+    private javax.swing.JButton btnAdjuntarIdentificacion2;
+    private javax.swing.JButton btnAdjuntarIdentificacion3;
+    private javax.swing.JButton btnAdjuntarIdentificacion4;
+    private javax.swing.JButton btnAdjuntarIdentificacion5;
+    private javax.swing.JCheckBox btnCapaCRoja;
+    private javax.swing.JCheckBox btnCapaDCivil;
+    private javax.swing.JCheckBox btnCapaOtros;
+    private javax.swing.JCheckBox btnCapaPNPFFAA;
+    private javax.swing.JRadioButton btnCompCapaNo;
+    private javax.swing.JRadioButton btnCompCapaSi;
+    private javax.swing.JRadioButton btnEntrNo;
+    private javax.swing.JRadioButton btnEntrSi;
     private javax.swing.JRadioButton btnLicNo;
     private javax.swing.JRadioButton btnLicSi;
+    private javax.swing.JRadioButton btnSexFemenino;
+    private javax.swing.JRadioButton btnSexMasculino;
+    private javax.swing.JCheckBox btnSkillAlbanileria;
+    private javax.swing.JCheckBox btnSkillBusqRescate;
+    private javax.swing.JCheckBox btnSkillCampoSelva;
+    private javax.swing.JCheckBox btnSkillCapacitacionEnsenanza;
+    private javax.swing.JCheckBox btnSkillCarpinteria;
+    private javax.swing.JCheckBox btnSkillComunicacionEfectiva;
+    private javax.swing.JCheckBox btnSkillConduccionVehicPesados;
+    private javax.swing.JCheckBox btnSkillControlHemorragias;
+    private javax.swing.JCheckBox btnSkillCoordinacionGrupos;
+    private javax.swing.JCheckBox btnSkillElectricidad;
+    private javax.swing.JCheckBox btnSkillEvacHeridos;
+    private javax.swing.JCheckBox btnSkillExtintores;
+    private javax.swing.JCheckBox btnSkillFracturas;
+    private javax.swing.JCheckBox btnSkillGestionEmergencias;
+    private javax.swing.JCheckBox btnSkillHerramientas;
+    private javax.swing.JCheckBox btnSkillIncendiosEstructurales;
+    private javax.swing.JCheckBox btnSkillIncendiosForestales;
+    private javax.swing.JCheckBox btnSkillIncendiosVehiculares;
+    private javax.swing.JCheckBox btnSkillInformatica;
+    private javax.swing.JCheckBox btnSkillLogisticaSuministros;
+    private javax.swing.JCheckBox btnSkillManguerasAgua;
+    private javax.swing.JCheckBox btnSkillMatInflamables;
+    private javax.swing.JCheckBox btnSkillMecanica;
+    private javax.swing.JCheckBox btnSkillPrevIncendiosDomesticos;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos33;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos34;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos35;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos36;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos37;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos38;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos39;
+    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos40;
+    private javax.swing.JCheckBox btnSkillRCP;
+    private javax.swing.JCheckBox btnSkillRadioComunicaciones;
+    private javax.swing.JCheckBox btnSkillRescAcuatico;
+    private javax.swing.JCheckBox btnSkillRescAltura;
+    private javax.swing.JCheckBox btnSkillRescVehicular;
+    private javax.swing.JCheckBox btnSkillRutasEvacuaciones;
+    private javax.swing.JCheckBox btnSkillSoldadura;
+    private javax.swing.JCheckBox btnSkillUsoERA;
     private javax.swing.JButton btnTomarFormulario;
+    private javax.swing.JRadioButton btnVolNo;
+    private javax.swing.JRadioButton btnVolSi;
     private javax.swing.JPanel franjaRojaInicial;
+    private javax.swing.ButtonGroup grupoCompromisoCapacitacion;
+    private javax.swing.ButtonGroup grupoEntrenamiento;
     private javax.swing.ButtonGroup grupoLicencia;
     private javax.swing.ButtonGroup grupoSexo;
+    private javax.swing.ButtonGroup grupoVoluntario;
     private javax.swing.JLabel iconoBomberos;
     private javax.swing.JLabel iconoBomberos1;
+    private javax.swing.JLabel iconoBomberos2;
+    private javax.swing.JLabel iconoBomberos3;
+    private javax.swing.JLabel iconoBomberos4;
     private javax.swing.JLabel iconoBomberosInicial;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lblAdjuntarIdentificacion;
+    private javax.swing.JLabel lblAdjuntarIdentificacion1;
+    private javax.swing.JLabel lblAdjuntarIdentificacion2;
+    private javax.swing.JLabel lblAdjuntarIdentificacion3;
+    private javax.swing.JLabel lblAdjuntarIdentificacion4;
+    private javax.swing.JLabel lblAdjuntarIdentificacion5;
     private javax.swing.JLabel lblApe;
+    private javax.swing.JLabel lblAport;
+    private javax.swing.JLabel lblCapa;
+    private javax.swing.JLabel lblCompCapa;
     private javax.swing.JLabel lblCor;
     private javax.swing.JLabel lblDir;
     private javax.swing.JLabel lblDis;
+    private javax.swing.JLabel lblDiscap;
+    private javax.swing.JLabel lblDisp;
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblEda;
+    private javax.swing.JLabel lblEntr;
+    private javax.swing.JLabel lblExpPrevia;
     private javax.swing.JLabel lblFec;
     private javax.swing.JLabel lblLic;
+    private javax.swing.JLabel lblManejo;
+    private javax.swing.JLabel lblMot;
     private javax.swing.JLabel lblNom;
     private javax.swing.JLabel lblRef;
     private javax.swing.JLabel lblSex;
     private javax.swing.JLabel lblTel;
+    private javax.swing.JLabel lblVol;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel paginaContacto;
     private javax.swing.JPanel paginaDatosPersonales;
+    private javax.swing.JPanel paginaDocumentacion;
+    private javax.swing.JPanel paginaExperienciaYMotivacion;
+    private javax.swing.JPanel paginaHabilidades;
     private javax.swing.JPanel paginaInicio;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel panelContenido;
     private javax.swing.JPanel panelContenido1;
+    private javax.swing.JPanel panelContenido2;
+    private javax.swing.JPanel panelContenido3;
+    private javax.swing.JPanel panelContenido4;
     private javax.swing.JPanel panelFormulario;
     private javax.swing.JPanel panelFormulario1;
+    private javax.swing.JPanel panelFormulario2;
+    private javax.swing.JPanel panelFormulario3;
+    private javax.swing.JPanel panelFormulario4;
     private javax.swing.JPanel panelInferior;
     private javax.swing.JPanel panelInferior1;
+    private javax.swing.JPanel panelInferior2;
+    private javax.swing.JPanel panelInferior3;
+    private javax.swing.JPanel panelInferior4;
     private javax.swing.JPanel panelPestañas;
     private javax.swing.JPanel panelPestañas1;
+    private javax.swing.JPanel panelPestañas2;
+    private javax.swing.JPanel panelPestañas3;
+    private javax.swing.JPanel panelPestañas4;
     private javax.swing.JPanel panelScroll;
     private javax.swing.JPanel panelScroll1;
+    private javax.swing.JPanel panelScroll2;
+    private javax.swing.JPanel panelScroll3;
+    private javax.swing.JPanel panelScroll4;
     private javax.swing.JPanel panelSuperior;
     private javax.swing.JPanel panelSuperior1;
+    private javax.swing.JPanel panelSuperior2;
+    private javax.swing.JPanel panelSuperior3;
+    private javax.swing.JPanel panelSuperior4;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JScrollPane scroll3;
+    private javax.swing.JScrollPane scroll4;
     private javax.swing.JTextField txtApe;
+    private javax.swing.JTextField txtAport;
     private javax.swing.JTextField txtCor;
     private javax.swing.JTextField txtDir;
     private javax.swing.JComboBox<String> txtDis;
+    private javax.swing.JTextField txtDiscap;
+    private javax.swing.JComboBox<String> txtDisp;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtEda;
+    private javax.swing.JComboBox<String> txtExpPrevia;
     private com.toedter.calendar.JDateChooser txtFec;
+    private javax.swing.JTextField txtManejo;
+    private javax.swing.JTextField txtMot;
     private javax.swing.JTextField txtNom;
     private javax.swing.JTextField txtRef;
     private javax.swing.JTextField txtTel;
