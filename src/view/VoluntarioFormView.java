@@ -1,13 +1,15 @@
 package view;
 
 public class VoluntarioFormView extends javax.swing.JFrame {
-    
+    private int state = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VoluntarioFormView.class.getName());
 
     public VoluntarioFormView() {
         initComponents();
+        this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         mainPanel.add(paginaInicio, "paginaInicio");
-        mainPanel.add(paginaFormulario1, "paginaFormulario1");
+        mainPanel.add(paginaDatosPersonales, "paginaDatosPersonales");
+        mainPanel.add(paginaContacto, "paginaContacto");
 
     }
 
@@ -20,57 +22,643 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoSexo = new javax.swing.ButtonGroup();
+        grupoLicencia = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         paginaInicio = new javax.swing.JPanel();
-        btn_tomarFormulario = new javax.swing.JButton();
-        paginaFormulario1 = new javax.swing.JPanel();
-        TEXTO = new javax.swing.JLabel();
+        franjaRojaInicial = new javax.swing.JPanel();
+        iconoBomberosInicial = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        btnTomarFormulario = new javax.swing.JButton();
+        paginaDatosPersonales = new javax.swing.JPanel();
+        panelSuperior = new javax.swing.JPanel();
+        iconoBomberos = new javax.swing.JLabel();
+        panelPestañas = new javax.swing.JPanel();
+        btn0DatosPersonales = new javax.swing.JButton();
+        btn0Contacto = new javax.swing.JButton();
+        btn0Habilidades = new javax.swing.JButton();
+        btn0ExperienciaYMotivacion = new javax.swing.JButton();
+        btn0Documentacion = new javax.swing.JButton();
+        panelScroll = new javax.swing.JPanel();
+        scroll = new javax.swing.JScrollPane();
+        panelContenido = new javax.swing.JPanel();
+        panelFormulario = new javax.swing.JPanel();
+        ESPACIO1 = new javax.swing.JLabel();
+        ESPACIO2 = new javax.swing.JLabel();
+        lblNom = new javax.swing.JLabel();
+        txtNom = new javax.swing.JTextField();
+        lblApe = new javax.swing.JLabel();
+        txtApe = new javax.swing.JTextField();
+        lblDni = new javax.swing.JLabel();
+        txtDni = new javax.swing.JTextField();
+        lblFec = new javax.swing.JLabel();
+        txtFec = new com.toedter.calendar.JDateChooser();
+        lblEda = new javax.swing.JLabel();
+        txtEda = new javax.swing.JTextField();
+        lblSex = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        panelInferior = new javax.swing.JPanel();
+        btn0SiguientePagina = new javax.swing.JButton();
+        paginaContacto = new javax.swing.JPanel();
+        panelSuperior1 = new javax.swing.JPanel();
+        iconoBomberos1 = new javax.swing.JLabel();
+        panelPestañas1 = new javax.swing.JPanel();
+        btn1DatosPersonales = new javax.swing.JButton();
+        btn1Contacto = new javax.swing.JButton();
+        btn1Habilidades = new javax.swing.JButton();
+        btn1ExperienciaYMotivacion1 = new javax.swing.JButton();
+        btn1Documentacion = new javax.swing.JButton();
+        panelScroll1 = new javax.swing.JPanel();
+        scroll1 = new javax.swing.JScrollPane();
+        panelContenido1 = new javax.swing.JPanel();
+        panelFormulario1 = new javax.swing.JPanel();
+        ESPACIO3 = new javax.swing.JLabel();
+        ESPACIO4 = new javax.swing.JLabel();
+        lblCor = new javax.swing.JLabel();
+        txtCor = new javax.swing.JTextField();
+        lblTel = new javax.swing.JLabel();
+        txtTel = new javax.swing.JTextField();
+        lblLic = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnLicSi = new javax.swing.JRadioButton();
+        btnLicNo = new javax.swing.JRadioButton();
+        lblDis = new javax.swing.JLabel();
+        txtDis = new javax.swing.JComboBox<>();
+        lblDir = new javax.swing.JLabel();
+        txtDir = new javax.swing.JTextField();
+        lblRef = new javax.swing.JLabel();
+        txtRef = new javax.swing.JTextField();
+        panelInferior1 = new javax.swing.JPanel();
+        btn1SiguientePagina = new javax.swing.JButton();
+        btn1PaginaAnterior = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setExtendedState(java.awt.Frame.MAXIMIZED_BOTH
-        );
         setFocusable(false);
-        setPreferredSize(new java.awt.Dimension(640, 360));
+        setPreferredSize(new java.awt.Dimension(854, 480));
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new java.awt.CardLayout());
 
         paginaInicio.setBackground(new java.awt.Color(255, 255, 255));
-        paginaInicio.setLayout(new java.awt.GridBagLayout());
+        paginaInicio.setLayout(new java.awt.BorderLayout());
 
-        btn_tomarFormulario.setBackground(new java.awt.Color(215, 85, 85));
-        btn_tomarFormulario.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        btn_tomarFormulario.setForeground(new java.awt.Color(255, 255, 255));
-        btn_tomarFormulario.setText("TOMAR FORMULARIO");
-        btn_tomarFormulario.addActionListener(new java.awt.event.ActionListener() {
+        franjaRojaInicial.setBackground(new java.awt.Color(180, 15, 15));
+        franjaRojaInicial.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberosInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        franjaRojaInicial.add(iconoBomberosInicial, java.awt.BorderLayout.CENTER);
+
+        paginaInicio.add(franjaRojaInicial, java.awt.BorderLayout.PAGE_START);
+
+        panel.setBackground(new java.awt.Color(255, 255, 255));
+        panel.setLayout(new java.awt.GridBagLayout());
+
+        btnTomarFormulario.setBackground(new java.awt.Color(180, 15, 15));
+        btnTomarFormulario.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnTomarFormulario.setForeground(new java.awt.Color(255, 255, 255));
+        btnTomarFormulario.setText("TOMAR FORMULARIO");
+        btnTomarFormulario.setPreferredSize(new java.awt.Dimension(500, 100));
+        btnTomarFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tomarFormularioActionPerformed(evt);
+                btnTomarFormularioActionPerformed(evt);
             }
         });
-        paginaInicio.add(btn_tomarFormulario, new java.awt.GridBagConstraints());
+        panel.add(btnTomarFormulario, new java.awt.GridBagConstraints());
+
+        paginaInicio.add(panel, java.awt.BorderLayout.CENTER);
 
         mainPanel.add(paginaInicio, "card2");
 
-        paginaFormulario1.setBackground(new java.awt.Color(255, 255, 255));
-        paginaFormulario1.setLayout(new java.awt.GridBagLayout());
+        paginaDatosPersonales.setBackground(new java.awt.Color(255, 255, 255));
+        paginaDatosPersonales.setPreferredSize(new java.awt.Dimension(1080, 90));
+        paginaDatosPersonales.setLayout(new java.awt.BorderLayout());
 
-        TEXTO.setBackground(new java.awt.Color(255, 255, 255));
-        TEXTO.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        TEXTO.setForeground(new java.awt.Color(0, 0, 0));
-        TEXTO.setText("Bienvenido al formulario de registro de voluntariado!");
-        paginaFormulario1.add(TEXTO, new java.awt.GridBagConstraints());
+        panelSuperior.setBackground(new java.awt.Color(180, 15, 15));
+        panelSuperior.setLayout(new java.awt.BorderLayout());
 
-        mainPanel.add(paginaFormulario1, "card3");
+        iconoBomberos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        panelSuperior.add(iconoBomberos, java.awt.BorderLayout.CENTER);
+
+        panelPestañas.setBackground(new java.awt.Color(137, 10, 10));
+
+        btn0DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn0DatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+        btn0DatosPersonales.setText("DATOS PERSONALES");
+        btn0DatosPersonales.setActionCommand("");
+        btn0DatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0DatosPersonalesActionPerformed(evt);
+            }
+        });
+        panelPestañas.add(btn0DatosPersonales);
+
+        btn0Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Contacto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0Contacto.setForeground(new java.awt.Color(255, 255, 255));
+        btn0Contacto.setText("CONTACTO");
+        btn0Contacto.setActionCommand("");
+        btn0Contacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ContactoActionPerformed(evt);
+            }
+        });
+        panelPestañas.add(btn0Contacto);
+
+        btn0Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+        btn0Habilidades.setText("HABILIDADES");
+        btn0Habilidades.setActionCommand("");
+        btn0Habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0HabilidadesActionPerformed(evt);
+            }
+        });
+        panelPestañas.add(btn0Habilidades);
+
+        btn0ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn0ExperienciaYMotivacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn0ExperienciaYMotivacion.setText("EXPERIENCIA Y MOTIVACIÓN");
+        btn0ExperienciaYMotivacion.setActionCommand("");
+        btn0ExperienciaYMotivacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ExperienciaYMotivacionActionPerformed(evt);
+            }
+        });
+        panelPestañas.add(btn0ExperienciaYMotivacion);
+
+        btn0Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn0Documentacion.setText("DOCUMENTACIÓN");
+        btn0Documentacion.setActionCommand("");
+        panelPestañas.add(btn0Documentacion);
+
+        panelSuperior.add(panelPestañas, java.awt.BorderLayout.PAGE_END);
+
+        paginaDatosPersonales.add(panelSuperior, java.awt.BorderLayout.NORTH);
+
+        panelScroll.setBackground(new java.awt.Color(255, 255, 255));
+        panelScroll.setLayout(new java.awt.BorderLayout());
+
+        scroll.setForeground(new java.awt.Color(153, 153, 153));
+        scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelContenido.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenido.setMaximumSize(new java.awt.Dimension(600, 2000));
+        panelContenido.setPreferredSize(new java.awt.Dimension(610, 500));
+
+        panelFormulario.setBackground(new java.awt.Color(255, 255, 255));
+        panelFormulario.setPreferredSize(new java.awt.Dimension(600, 450));
+        panelFormulario.setLayout(new java.awt.GridLayout(0, 2, 50, 40));
+
+        ESPACIO1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO1.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario.add(ESPACIO1);
+
+        ESPACIO2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO2.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario.add(ESPACIO2);
+
+        lblNom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNom.setForeground(new java.awt.Color(0, 0, 0));
+        lblNom.setText("Nombres Completos: ");
+        panelFormulario.add(lblNom);
+
+        txtNom.setBackground(new java.awt.Color(180, 15, 15));
+        txtNom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNom.setForeground(new java.awt.Color(255, 255, 255));
+        txtNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomActionPerformed(evt);
+            }
+        });
+        panelFormulario.add(txtNom);
+
+        lblApe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblApe.setForeground(new java.awt.Color(0, 0, 0));
+        lblApe.setText("Apellidos Completos: ");
+        panelFormulario.add(lblApe);
+
+        txtApe.setBackground(new java.awt.Color(180, 15, 15));
+        txtApe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtApe.setForeground(new java.awt.Color(255, 255, 255));
+        txtApe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApeActionPerformed(evt);
+            }
+        });
+        panelFormulario.add(txtApe);
+
+        lblDni.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDni.setForeground(new java.awt.Color(0, 0, 0));
+        lblDni.setText("DNI: ");
+        panelFormulario.add(lblDni);
+
+        txtDni.setBackground(new java.awt.Color(180, 15, 15));
+        txtDni.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtDni.setForeground(new java.awt.Color(255, 255, 255));
+        txtDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDniActionPerformed(evt);
+            }
+        });
+        panelFormulario.add(txtDni);
+
+        lblFec.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblFec.setForeground(new java.awt.Color(0, 0, 0));
+        lblFec.setText("Fecha de nacimiento:");
+        panelFormulario.add(lblFec);
+
+        txtFec.setBackground(new java.awt.Color(180, 15, 15));
+        panelFormulario.add(txtFec);
+
+        lblEda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEda.setForeground(new java.awt.Color(0, 0, 0));
+        lblEda.setText("Edad:");
+        panelFormulario.add(lblEda);
+
+        txtEda.setEditable(false);
+        txtEda.setBackground(new java.awt.Color(180, 15, 15));
+        txtEda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEda.setForeground(new java.awt.Color(255, 255, 255));
+        txtEda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdaActionPerformed(evt);
+            }
+        });
+        panelFormulario.add(txtEda);
+
+        lblSex.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSex.setForeground(new java.awt.Color(0, 0, 0));
+        lblSex.setText("Sexo:");
+        panelFormulario.add(lblSex);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        grupoSexo.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(180, 15, 15));
+        jRadioButton1.setText("Masculino");
+        jPanel1.add(jRadioButton1, java.awt.BorderLayout.CENTER);
+
+        grupoSexo.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(180, 15, 15));
+        jRadioButton2.setText("Femenino");
+        jPanel1.add(jRadioButton2, java.awt.BorderLayout.EAST);
+
+        panelFormulario.add(jPanel1);
+
+        panelContenido.add(panelFormulario);
+
+        scroll.setViewportView(panelContenido);
+
+        panelScroll.add(scroll, java.awt.BorderLayout.CENTER);
+
+        paginaDatosPersonales.add(panelScroll, java.awt.BorderLayout.CENTER);
+
+        panelInferior.setBackground(new java.awt.Color(180, 15, 15));
+        panelInferior.setLayout(new java.awt.BorderLayout());
+
+        btn0SiguientePagina.setBackground(new java.awt.Color(255, 255, 255));
+        btn0SiguientePagina.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn0SiguientePagina.setForeground(new java.awt.Color(180, 15, 15));
+        btn0SiguientePagina.setText("Siguiente página");
+        btn0SiguientePagina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0SiguientePaginaActionPerformed(evt);
+            }
+        });
+        panelInferior.add(btn0SiguientePagina, java.awt.BorderLayout.EAST);
+
+        paginaDatosPersonales.add(panelInferior, java.awt.BorderLayout.PAGE_END);
+
+        mainPanel.add(paginaDatosPersonales, "card3");
+
+        paginaContacto.setBackground(new java.awt.Color(255, 255, 255));
+        paginaContacto.setPreferredSize(new java.awt.Dimension(1080, 90));
+        paginaContacto.setLayout(new java.awt.BorderLayout());
+
+        panelSuperior1.setBackground(new java.awt.Color(180, 15, 15));
+        panelSuperior1.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        panelSuperior1.add(iconoBomberos1, java.awt.BorderLayout.CENTER);
+
+        panelPestañas1.setBackground(new java.awt.Color(137, 10, 10));
+
+        btn1DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn1DatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+        btn1DatosPersonales.setText("DATOS PERSONALES");
+        btn1DatosPersonales.setActionCommand("");
+        btn1DatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1DatosPersonalesActionPerformed(evt);
+            }
+        });
+        panelPestañas1.add(btn1DatosPersonales);
+
+        btn1Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn1Contacto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1Contacto.setForeground(new java.awt.Color(255, 255, 255));
+        btn1Contacto.setText("CONTACTO");
+        btn1Contacto.setActionCommand("");
+        btn1Contacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ContactoActionPerformed(evt);
+            }
+        });
+        panelPestañas1.add(btn1Contacto);
+
+        btn1Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn1Habilidades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+        btn1Habilidades.setText("HABILIDADES");
+        btn1Habilidades.setActionCommand("");
+        btn1Habilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1HabilidadesActionPerformed(evt);
+            }
+        });
+        panelPestañas1.add(btn1Habilidades);
+
+        btn1ExperienciaYMotivacion1.setBackground(new java.awt.Color(180, 15, 15));
+        btn1ExperienciaYMotivacion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1ExperienciaYMotivacion1.setForeground(new java.awt.Color(255, 255, 255));
+        btn1ExperienciaYMotivacion1.setText("EXPERIENCIA Y MOTIVACIÓN");
+        btn1ExperienciaYMotivacion1.setActionCommand("");
+        btn1ExperienciaYMotivacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ExperienciaYMotivacion1ActionPerformed(evt);
+            }
+        });
+        panelPestañas1.add(btn1ExperienciaYMotivacion1);
+
+        btn1Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn1Documentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn1Documentacion.setText("DOCUMENTACIÓN");
+        btn1Documentacion.setActionCommand("");
+        panelPestañas1.add(btn1Documentacion);
+
+        panelSuperior1.add(panelPestañas1, java.awt.BorderLayout.PAGE_END);
+
+        paginaContacto.add(panelSuperior1, java.awt.BorderLayout.NORTH);
+
+        panelScroll1.setBackground(new java.awt.Color(255, 255, 255));
+        panelScroll1.setLayout(new java.awt.BorderLayout());
+
+        scroll1.setForeground(new java.awt.Color(153, 153, 153));
+        scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelContenido1.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenido1.setMaximumSize(new java.awt.Dimension(600, 2000));
+        panelContenido1.setPreferredSize(new java.awt.Dimension(610, 500));
+
+        panelFormulario1.setBackground(new java.awt.Color(255, 255, 255));
+        panelFormulario1.setPreferredSize(new java.awt.Dimension(600, 450));
+        panelFormulario1.setLayout(new java.awt.GridLayout(0, 2, 50, 40));
+
+        ESPACIO3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO3.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario1.add(ESPACIO3);
+
+        ESPACIO4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ESPACIO4.setForeground(new java.awt.Color(0, 0, 0));
+        panelFormulario1.add(ESPACIO4);
+
+        lblCor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCor.setForeground(new java.awt.Color(0, 0, 0));
+        lblCor.setText("Correo Electrónico: ");
+        panelFormulario1.add(lblCor);
+
+        txtCor.setBackground(new java.awt.Color(180, 15, 15));
+        txtCor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtCor.setForeground(new java.awt.Color(255, 255, 255));
+        txtCor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorActionPerformed(evt);
+            }
+        });
+        panelFormulario1.add(txtCor);
+
+        lblTel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTel.setForeground(new java.awt.Color(0, 0, 0));
+        lblTel.setText("Número de Teléfono");
+        panelFormulario1.add(lblTel);
+
+        txtTel.setBackground(new java.awt.Color(180, 15, 15));
+        txtTel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtTel.setForeground(new java.awt.Color(255, 255, 255));
+        txtTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelActionPerformed(evt);
+            }
+        });
+        panelFormulario1.add(txtTel);
+
+        lblLic.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblLic.setForeground(new java.awt.Color(0, 0, 0));
+        lblLic.setText("Posee Lic. de Conducir?");
+        panelFormulario1.add(lblLic);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        grupoLicencia.add(btnLicSi);
+        btnLicSi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLicSi.setForeground(new java.awt.Color(180, 15, 15));
+        btnLicSi.setText("Si");
+        jPanel2.add(btnLicSi, java.awt.BorderLayout.CENTER);
+
+        grupoLicencia.add(btnLicNo);
+        btnLicNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLicNo.setForeground(new java.awt.Color(180, 15, 15));
+        btnLicNo.setText("No");
+        jPanel2.add(btnLicNo, java.awt.BorderLayout.EAST);
+
+        panelFormulario1.add(jPanel2);
+
+        lblDis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDis.setForeground(new java.awt.Color(0, 0, 0));
+        lblDis.setText("Distrito de Residencia:");
+        panelFormulario1.add(lblDis);
+
+        txtDis.setBackground(new java.awt.Color(180, 15, 15));
+        txtDis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtDis.setForeground(new java.awt.Color(255, 255, 255));
+        txtDis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ancon", "Ate", "Barranco", "Bellavista", "Breña", "Carabayllo", "Carmen de La Legua Reynoso", "Chaclacayo", "Chorrillos", "Cieneguilla", "Comas", "El Agustino", "Independencia", "Jesus Maria", "La Molina", "La Perla", "La Punta", "La Victoria", "Lima", "Lince", "Los Olivos", "Lurigancho", "Lurin", "Magdalena del Mar", "Miraflores", "Pachacamac", "Provincia Cons. del Callao", "Pucusana", "Pueblo Libre", "Puente Piedra", "Punta Hermosa", "Punta Negra", "Rimac", "San Bartolo", "San Borja", "San Isidro", "San Juan de Lurigancho", "San Juan de Miraflores", "San Luis", "San Martin de Porres", "San Miguel", "Santa Anita", "Santa Maria del Mar", "Santa Rosa", "Santiago de Surco", "Surquillo", "Ventanilla", "Villa El Salvador", "Villa Maria del Triunfo" }));
+        panelFormulario1.add(txtDis);
+
+        lblDir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDir.setForeground(new java.awt.Color(0, 0, 0));
+        lblDir.setText("Dirección");
+        panelFormulario1.add(lblDir);
+
+        txtDir.setBackground(new java.awt.Color(180, 15, 15));
+        txtDir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtDir.setForeground(new java.awt.Color(255, 255, 255));
+        txtDir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDirActionPerformed(evt);
+            }
+        });
+        panelFormulario1.add(txtDir);
+
+        lblRef.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRef.setForeground(new java.awt.Color(0, 0, 0));
+        lblRef.setText("Referencia de Ubicación:");
+        panelFormulario1.add(lblRef);
+
+        txtRef.setEditable(false);
+        txtRef.setBackground(new java.awt.Color(180, 15, 15));
+        txtRef.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtRef.setForeground(new java.awt.Color(255, 255, 255));
+        txtRef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRefActionPerformed(evt);
+            }
+        });
+        panelFormulario1.add(txtRef);
+
+        panelContenido1.add(panelFormulario1);
+
+        scroll1.setViewportView(panelContenido1);
+
+        panelScroll1.add(scroll1, java.awt.BorderLayout.CENTER);
+
+        paginaContacto.add(panelScroll1, java.awt.BorderLayout.CENTER);
+
+        panelInferior1.setBackground(new java.awt.Color(180, 15, 15));
+        panelInferior1.setLayout(new java.awt.BorderLayout());
+
+        btn1SiguientePagina.setBackground(new java.awt.Color(255, 255, 255));
+        btn1SiguientePagina.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1SiguientePagina.setForeground(new java.awt.Color(180, 15, 15));
+        btn1SiguientePagina.setText("Siguiente página");
+        btn1SiguientePagina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1SiguientePaginaActionPerformed(evt);
+            }
+        });
+        panelInferior1.add(btn1SiguientePagina, java.awt.BorderLayout.EAST);
+
+        btn1PaginaAnterior.setBackground(new java.awt.Color(255, 255, 255));
+        btn1PaginaAnterior.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn1PaginaAnterior.setForeground(new java.awt.Color(180, 15, 15));
+        btn1PaginaAnterior.setText("Página anterior");
+        btn1PaginaAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1PaginaAnteriorActionPerformed(evt);
+            }
+        });
+        panelInferior1.add(btn1PaginaAnterior, java.awt.BorderLayout.WEST);
+
+        paginaContacto.add(panelInferior1, java.awt.BorderLayout.PAGE_END);
+
+        mainPanel.add(paginaContacto, "card3");
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_tomarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tomarFormularioActionPerformed
+    private void btnTomarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarFormularioActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
-        card.show(mainPanel, "paginaFormulario1");
-    }//GEN-LAST:event_btn_tomarFormularioActionPerformed
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;
+    }//GEN-LAST:event_btnTomarFormularioActionPerformed
+
+    private void btn0ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ContactoActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaContacto");
+        state = 1;
+    }//GEN-LAST:event_btn0ContactoActionPerformed
+
+    private void btn0HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0HabilidadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn0HabilidadesActionPerformed
+
+    private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomActionPerformed
+
+    private void txtApeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApeActionPerformed
+
+    private void txtEdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdaActionPerformed
+
+    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniActionPerformed
+
+    private void btn0DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0DatosPersonalesActionPerformed
+        //do nothing
+    }//GEN-LAST:event_btn0DatosPersonalesActionPerformed
+
+    private void btn0ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ExperienciaYMotivacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn0ExperienciaYMotivacionActionPerformed
+
+    private void btn1DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1DatosPersonalesActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;
+    }//GEN-LAST:event_btn1DatosPersonalesActionPerformed
+
+    private void btn1ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ContactoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1ContactoActionPerformed
+
+    private void btn1HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1HabilidadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1HabilidadesActionPerformed
+
+    private void btn1ExperienciaYMotivacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ExperienciaYMotivacion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1ExperienciaYMotivacion1ActionPerformed
+
+    private void txtCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorActionPerformed
+
+    private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelActionPerformed
+
+    private void btn1SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1SiguientePaginaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn1SiguientePaginaActionPerformed
+
+    private void btn0SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0SiguientePaginaActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaContacto");
+        state = 1;
+    }//GEN-LAST:event_btn0SiguientePaginaActionPerformed
+
+    private void btn1PaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1PaginaAnteriorActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;  
+    }//GEN-LAST:event_btn1PaginaAnteriorActionPerformed
+
+    private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDirActionPerformed
+
+    private void txtRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRefActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,10 +686,76 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel TEXTO;
-    private javax.swing.JButton btn_tomarFormulario;
+    private javax.swing.JLabel ESPACIO1;
+    private javax.swing.JLabel ESPACIO2;
+    private javax.swing.JLabel ESPACIO3;
+    private javax.swing.JLabel ESPACIO4;
+    private javax.swing.JButton btn0Contacto;
+    private javax.swing.JButton btn0DatosPersonales;
+    private javax.swing.JButton btn0Documentacion;
+    private javax.swing.JButton btn0ExperienciaYMotivacion;
+    private javax.swing.JButton btn0Habilidades;
+    private javax.swing.JButton btn0SiguientePagina;
+    private javax.swing.JButton btn1Contacto;
+    private javax.swing.JButton btn1DatosPersonales;
+    private javax.swing.JButton btn1Documentacion;
+    private javax.swing.JButton btn1ExperienciaYMotivacion1;
+    private javax.swing.JButton btn1Habilidades;
+    private javax.swing.JButton btn1PaginaAnterior;
+    private javax.swing.JButton btn1SiguientePagina;
+    private javax.swing.JRadioButton btnLicNo;
+    private javax.swing.JRadioButton btnLicSi;
+    private javax.swing.JButton btnTomarFormulario;
+    private javax.swing.JPanel franjaRojaInicial;
+    private javax.swing.ButtonGroup grupoLicencia;
+    private javax.swing.ButtonGroup grupoSexo;
+    private javax.swing.JLabel iconoBomberos;
+    private javax.swing.JLabel iconoBomberos1;
+    private javax.swing.JLabel iconoBomberosInicial;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel lblApe;
+    private javax.swing.JLabel lblCor;
+    private javax.swing.JLabel lblDir;
+    private javax.swing.JLabel lblDis;
+    private javax.swing.JLabel lblDni;
+    private javax.swing.JLabel lblEda;
+    private javax.swing.JLabel lblFec;
+    private javax.swing.JLabel lblLic;
+    private javax.swing.JLabel lblNom;
+    private javax.swing.JLabel lblRef;
+    private javax.swing.JLabel lblSex;
+    private javax.swing.JLabel lblTel;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JPanel paginaFormulario1;
+    private javax.swing.JPanel paginaContacto;
+    private javax.swing.JPanel paginaDatosPersonales;
     private javax.swing.JPanel paginaInicio;
+    private javax.swing.JPanel panel;
+    private javax.swing.JPanel panelContenido;
+    private javax.swing.JPanel panelContenido1;
+    private javax.swing.JPanel panelFormulario;
+    private javax.swing.JPanel panelFormulario1;
+    private javax.swing.JPanel panelInferior;
+    private javax.swing.JPanel panelInferior1;
+    private javax.swing.JPanel panelPestañas;
+    private javax.swing.JPanel panelPestañas1;
+    private javax.swing.JPanel panelScroll;
+    private javax.swing.JPanel panelScroll1;
+    private javax.swing.JPanel panelSuperior;
+    private javax.swing.JPanel panelSuperior1;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JTextField txtApe;
+    private javax.swing.JTextField txtCor;
+    private javax.swing.JTextField txtDir;
+    private javax.swing.JComboBox<String> txtDis;
+    private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtEda;
+    private com.toedter.calendar.JDateChooser txtFec;
+    private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtRef;
+    private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }
