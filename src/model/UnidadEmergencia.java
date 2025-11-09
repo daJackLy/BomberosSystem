@@ -1,4 +1,4 @@
-package bombersystem.model;
+package model;
 
 public class UnidadEmergencia {
     private String codigo;

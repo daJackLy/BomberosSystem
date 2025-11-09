@@ -1,4 +1,4 @@
-package bombersystem.model;
+package model;
 
 public class Conductor {
     private String nombre;

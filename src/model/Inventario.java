@@ -1,4 +1,4 @@
-package bombersystem.model;
+package model;
 
 public class Inventario {
     private String item;
