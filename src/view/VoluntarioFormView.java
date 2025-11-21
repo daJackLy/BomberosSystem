@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JButton;
+
 public class VoluntarioFormView extends javax.swing.JFrame {
     private int state = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VoluntarioFormView.class.getName());
@@ -13,7 +15,121 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         mainPanel.add(paginaExperienciaYMotivacion, "paginaExperienciaYMotivacion");
         mainPanel.add(paginaHabilidades, "paginaHabilidades");
         mainPanel.add(paginaDocumentacion, "paginaDocumentacion");
+        
+        //listener para calcular edad
+        txtFec.getDateEditor().addPropertyChangeListener(evt -> {
+            if ("date".equals(evt.getPropertyName())) {
+                calcularEdad();
+            }
+        });   
+    }
+    
+    private void actualizarBotones() {
+    if (state == 0) {
+        btn0DatosPersonales.setBackground(new java.awt.Color(255, 255, 255));
+        btn0DatosPersonales.setForeground(new java.awt.Color(180, 15, 15));
 
+        btn0Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Contacto.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn0ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn0ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn0Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn0Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn0Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+
+    } else if (state == 1) {
+        btn1DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn1DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn1Contacto.setBackground(new java.awt.Color(255, 255, 255));
+        btn1Contacto.setForeground(new java.awt.Color(180, 15, 15));
+
+        btn1ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn1ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn1Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn1Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn1Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn1Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+
+    } else if (state == 2) {
+        btn2DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn2DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn2Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn2Contacto.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn2ExperienciaYMotivacion.setBackground(new java.awt.Color(255, 255, 255));
+        btn2ExperienciaYMotivacion.setForeground(new java.awt.Color(180, 15, 15));
+
+        btn2Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn2Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn2Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn2Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+
+    } else if (state == 3) {
+        btn3DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn3DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn3Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn3Contacto.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn3ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn3ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn3Habilidades.setBackground(new java.awt.Color(255, 255, 255));
+        btn3Habilidades.setForeground(new java.awt.Color(180, 15, 15));
+
+        btn3Documentacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn3Documentacion.setForeground(new java.awt.Color(255, 255, 255));
+
+    } else if (state == 4) {
+        btn4DatosPersonales.setBackground(new java.awt.Color(180, 15, 15));
+        btn4DatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn4Contacto.setBackground(new java.awt.Color(180, 15, 15));
+        btn4Contacto.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn4ExperienciaYMotivacion.setBackground(new java.awt.Color(180, 15, 15));
+        btn4ExperienciaYMotivacion.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn4Habilidades.setBackground(new java.awt.Color(180, 15, 15));
+        btn4Habilidades.setForeground(new java.awt.Color(255, 255, 255));
+
+        btn4Documentacion.setBackground(new java.awt.Color(255, 255, 255));
+        btn4Documentacion.setForeground(new java.awt.Color(180, 15, 15));
+    }
+}
+    
+    private void calcularEdad() {
+        java.util.Date fechaNac = txtFec.getDate();
+        if (fechaNac != null) {
+            java.time.LocalDate nacimiento = fechaNac.toInstant()
+                    .atZone(java.time.ZoneId.systemDefault())
+                    .toLocalDate();
+            java.time.LocalDate hoy = java.time.LocalDate.now();
+
+            int edad = java.time.Period.between(nacimiento, hoy).getYears();
+
+            if (edad < 16) {
+                txtEda.setText("");
+                javax.swing.JOptionPane.showMessageDialog(this, 
+                        "Debes tener al menos 16 años para postular como voluntario.", 
+                        "Edad insuficiente", 
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+                txtFec.setDate(null);
+            } else {
+                txtEda.setText(String.valueOf(edad));
+            }
+        } else {
+            txtEda.setText("");
+        }
     }
 
     /**
@@ -258,7 +374,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
         setMinimumSize(new java.awt.Dimension(849, 480));
-        setPreferredSize(new java.awt.Dimension(854, 480));
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new java.awt.CardLayout());
@@ -468,7 +583,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelFormulario.add(lblEda);
 
         txtEda.setEditable(false);
-        txtEda.setBackground(new java.awt.Color(180, 15, 15));
+        txtEda.setBackground(new java.awt.Color(153, 153, 153));
         txtEda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtEda.setForeground(new java.awt.Color(255, 255, 255));
         txtEda.addActionListener(new java.awt.event.ActionListener() {
@@ -489,7 +604,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         grupoSexo.add(btnSexMasculino);
         btnSexMasculino.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSexMasculino.setForeground(new java.awt.Color(180, 15, 15));
-        btnSexMasculino.setText("Si");
+        btnSexMasculino.setText("Masculino");
         btnSexMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSexMasculinoActionPerformed(evt);
@@ -500,7 +615,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         grupoSexo.add(btnSexFemenino);
         btnSexFemenino.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSexFemenino.setForeground(new java.awt.Color(180, 15, 15));
-        btnSexFemenino.setText("No");
+        btnSexFemenino.setText("Femenino");
         jPanel7.add(btnSexFemenino, java.awt.BorderLayout.EAST);
 
         panelFormulario.add(jPanel7);
@@ -1998,18 +2113,21 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDatosPersonales");
         state = 0;
+        actualizarBotones();
     }//GEN-LAST:event_btnTomarFormularioActionPerformed
 
     private void btn0ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ContactoActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaContacto");
         state = 1;
+        actualizarBotones();
     }//GEN-LAST:event_btn0ContactoActionPerformed
 
     private void btn0HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0HabilidadesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaHabilidades");
         state = 3;
+        actualizarBotones();
     }//GEN-LAST:event_btn0HabilidadesActionPerformed
 
     private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
@@ -2036,12 +2154,14 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaExperienciaYMotivacion");
         state = 2;
+        actualizarBotones();
     }//GEN-LAST:event_btn0ExperienciaYMotivacionActionPerformed
 
     private void btn1DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1DatosPersonalesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDatosPersonales");
         state = 0;
+        actualizarBotones();
     }//GEN-LAST:event_btn1DatosPersonalesActionPerformed
 
     private void btn1ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ContactoActionPerformed
@@ -2052,12 +2172,14 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaHabilidades");
         state = 3;
+        actualizarBotones();
     }//GEN-LAST:event_btn1HabilidadesActionPerformed
 
     private void btn1ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ExperienciaYMotivacionActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaExperienciaYMotivacion");
         state = 2;
+        actualizarBotones();
     }//GEN-LAST:event_btn1ExperienciaYMotivacionActionPerformed
 
     private void txtCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorActionPerformed
@@ -2072,18 +2194,21 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaExperienciaYMotivacion");
         state = 2;
+        actualizarBotones();
     }//GEN-LAST:event_btn1SiguientePaginaActionPerformed
 
     private void btn0SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0SiguientePaginaActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaContacto");
         state = 1;
+        actualizarBotones();
     }//GEN-LAST:event_btn0SiguientePaginaActionPerformed
 
     private void btn1PaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1PaginaAnteriorActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDatosPersonales");
-        state = 0;  
+        state = 0; 
+        actualizarBotones();
     }//GEN-LAST:event_btn1PaginaAnteriorActionPerformed
 
     private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
@@ -2097,19 +2222,22 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private void btn2DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2DatosPersonalesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDatosPersonales");
-        state = 0;  
+        state = 0;
+        actualizarBotones();
     }//GEN-LAST:event_btn2DatosPersonalesActionPerformed
 
     private void btn2ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ContactoActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaContacto");
         state = 1;
+        actualizarBotones();
     }//GEN-LAST:event_btn2ContactoActionPerformed
 
     private void btn2HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2HabilidadesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaHabilidades");
         state = 3;
+        actualizarBotones();
     }//GEN-LAST:event_btn2HabilidadesActionPerformed
 
     private void btn2ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ExperienciaYMotivacionActionPerformed
@@ -2120,12 +2248,14 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaHabilidades");
         state = 3;
+        actualizarBotones();
     }//GEN-LAST:event_btn2SiguientePaginaActionPerformed
 
     private void btn2PaginaAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2PaginaAnteriorActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaContacto");
         state = 1;
+        actualizarBotones();
     }//GEN-LAST:event_btn2PaginaAnteriorActionPerformed
 
     private void btnVolSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolSiActionPerformed
@@ -2148,12 +2278,14 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaExperienciaYMotivacion");
         state = 2;
+        actualizarBotones();
     }//GEN-LAST:event_btn3PaginaAnteriorActionPerformed
 
     private void btn3SiguientePaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3SiguientePaginaActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDocumentacion");
         state = 4;
+        actualizarBotones();
     }//GEN-LAST:event_btn3SiguientePaginaActionPerformed
 
     private void btnSkillPrimerosAuxiliosBasicos40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos40ActionPerformed
@@ -2328,66 +2460,77 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaExperienciaYMotivacion");
         state = 2;
+        actualizarBotones();
     }//GEN-LAST:event_btn3ExperienciaYMotivacionActionPerformed
 
     private void btn3ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ContactoActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaContacto");
         state = 1;
+        actualizarBotones();
     }//GEN-LAST:event_btn3ContactoActionPerformed
 
     private void btn3DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3DatosPersonalesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDatosPersonales");
         state = 0;
+        actualizarBotones();
     }//GEN-LAST:event_btn3DatosPersonalesActionPerformed
 
     private void btn0DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0DocumentacionActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDocumentacion");
         state = 4;
+        actualizarBotones();
     }//GEN-LAST:event_btn0DocumentacionActionPerformed
 
     private void btn1DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1DocumentacionActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDocumentacion");
         state = 4;
+        actualizarBotones();
     }//GEN-LAST:event_btn1DocumentacionActionPerformed
 
     private void btn2DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2DocumentacionActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDocumentacion");
         state = 4;
+        actualizarBotones();
     }//GEN-LAST:event_btn2DocumentacionActionPerformed
 
     private void btn3DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3DocumentacionActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDocumentacion");
         state = 4;
+        actualizarBotones();
     }//GEN-LAST:event_btn3DocumentacionActionPerformed
 
     private void btn4DatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4DatosPersonalesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaDatosPersonales");
         state = 0;
+        actualizarBotones();
     }//GEN-LAST:event_btn4DatosPersonalesActionPerformed
 
     private void btn4ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ContactoActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaContacto");
         state = 1;
+        actualizarBotones();
     }//GEN-LAST:event_btn4ContactoActionPerformed
 
     private void btn4ExperienciaYMotivacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ExperienciaYMotivacionActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaExperienciaYMotivacion");
         state = 2;
+        actualizarBotones();
     }//GEN-LAST:event_btn4ExperienciaYMotivacionActionPerformed
 
     private void btn4HabilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4HabilidadesActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaHabilidades");
         state = 3;
+        actualizarBotones();
     }//GEN-LAST:event_btn4HabilidadesActionPerformed
 
     private void btn4DocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4DocumentacionActionPerformed
@@ -2398,6 +2541,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
         card.show(mainPanel, "paginaHabilidades");
         state = 3;
+        actualizarBotones();
     }//GEN-LAST:event_btn4PaginaAnteriorActionPerformed
 
     private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4EntregarFormularioActionPerformed
@@ -2661,3 +2805,4 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }
+
