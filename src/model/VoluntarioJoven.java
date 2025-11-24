@@ -3,7 +3,7 @@ package model;
 public class VoluntarioJoven extends Voluntario {
 
     public VoluntarioJoven() {
-        this.setTipo("juvenil");
+        this.setTipo("joven");
     }
 }
 

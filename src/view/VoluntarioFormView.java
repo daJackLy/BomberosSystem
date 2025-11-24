@@ -24,6 +24,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         mainPanel.add(paginaExperienciaYMotivacion, "paginaExperienciaYMotivacion");
         mainPanel.add(paginaHabilidades, "paginaHabilidades");
         mainPanel.add(paginaDocumentacion, "paginaDocumentacion");
+        mainPanel.add(paginaFinal, "paginaFinal");
         
         //listener para calcular edad
         txtFec.getDateEditor().addPropertyChangeListener(evt -> {
@@ -394,6 +395,11 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         panelInferior4 = new javax.swing.JPanel();
         btn4EntregarFormulario = new javax.swing.JButton();
         btn4PaginaAnterior = new javax.swing.JButton();
+        paginaFinal = new javax.swing.JPanel();
+        franjaRojaInicial1 = new javax.swing.JPanel();
+        iconoBomberosInicial1 = new javax.swing.JLabel();
+        panel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
@@ -863,10 +869,10 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         lblRef.setText("Referencia de Ubicación:");
         panelFormulario1.add(lblRef);
 
-        txtRef.setEditable(false);
         txtRef.setBackground(new java.awt.Color(180, 15, 15));
         txtRef.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtRef.setForeground(new java.awt.Color(255, 255, 255));
+        txtRef.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtRef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRefActionPerformed(evt);
@@ -2151,6 +2157,31 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
         mainPanel.add(paginaDocumentacion, "card3");
 
+        paginaFinal.setBackground(new java.awt.Color(255, 255, 255));
+        paginaFinal.setLayout(new java.awt.BorderLayout());
+
+        franjaRojaInicial1.setBackground(new java.awt.Color(180, 15, 15));
+        franjaRojaInicial1.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberosInicial1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        franjaRojaInicial1.add(iconoBomberosInicial1, java.awt.BorderLayout.CENTER);
+
+        paginaFinal.add(franjaRojaInicial1, java.awt.BorderLayout.PAGE_START);
+
+        panel1.setBackground(new java.awt.Color(255, 255, 255));
+        panel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setBackground(new java.awt.Color(185, 15, 15));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(185, 15, 15));
+        jLabel1.setText("¡Gracias por tomar el formulario! Este atento a su bandeja de correo electronico");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panel1.add(jLabel1, new java.awt.GridBagConstraints());
+
+        paginaFinal.add(panel1, java.awt.BorderLayout.CENTER);
+
+        mainPanel.add(paginaFinal, "card2");
+
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -2592,6 +2623,8 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4PaginaAnteriorActionPerformed
 
     private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4EntregarFormularioActionPerformed
+      
+
         //obtener tipo
         if (tipo.equals("joven")) {
             tipo = "joven";
@@ -2616,19 +2649,24 @@ public class VoluntarioFormView extends javax.swing.JFrame {
             participacion = participacion.substring(0, participacion.length() - 2);
         }
         
+        
+        int dni = txtDni.getText().trim().isEmpty() ? 0 : Integer.parseInt(txtDni.getText());
+        int edad = txtEda.getText().trim().isEmpty() ? 0 : Integer.parseInt(txtEda.getText());
+        int telefono = txtTel.getText().trim().isEmpty() ? 0 : Integer.parseInt(txtTel.getText());
+        
         Voluntario voluntario = VoluntarioFactory.crearVoluntario(tipo);
         VoluntarioBuilder builder = new VoluntarioBuilder(voluntario);
-        
+
         
         builder
         .withNombres(txtNom.getText())
         .withApellidos(txtApe.getText())
-        .withDni(Integer.parseInt(txtDni.getText()))
+        .withDni(dni)
         .withFechaNacimiento(((JTextField)txtFec.getDateEditor().getUiComponent()).getText())
-        .withEdad(Integer.parseInt(txtEda.getText()))
+        .withEdad(edad)
         .withSexo(btnSexMasculino.isSelected() ? "Masculino" : "Femenino")
         .withCorreo(txtCor.getText())
-        .withTelefono(Integer.parseInt(txtTel.getText()))
+        .withTelefono(telefono)
         .withPoseeLicencia(btnLicSi.isSelected())
         .withDistrito(txtDis.getSelectedItem().toString())
         .withDireccion(txtDir.getText())
@@ -2705,46 +2743,58 @@ public class VoluntarioFormView extends javax.swing.JFrame {
             carpetaPostulante.mkdir();
 
         try {
-            if (!btnAdjuntarIdentificacion.getText().isEmpty()) {
-                File archivoOriginal = new File(btnAdjuntarIdentificacion.getText());
+            //Identificación
+            String txtId = btnAdjuntarIdentificacion.getText().trim();
+            if (!txtId.isEmpty() && !txtId.equals("+ Subir un Archivo...")) {
+                File archivoOriginal = new File(txtId);
                 Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
                 Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
             }
-            
-            //cert domiciliario
-            if (!btnCertDomiciliario.getText().isEmpty()) {
-                File archivoOriginal = new File(btnCertDomiciliario.getText());
+
+            //Certificado domiciliario
+            String txtDom = btnCertDomiciliario.getText().trim();
+            if (!txtDom.isEmpty() && !txtDom.equals("+ Subir un Archivo...")) {
+                File archivoOriginal = new File(txtDom);
                 Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
                 Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
             }
-            
-            //constancia
-            if (!btnConstancia.getText().isEmpty()) {
-                File archivoOriginal = new File(btnConstancia.getText());
+
+            //Constancia
+            String txtConst = btnConstancia.getText().trim();
+            if (!txtConst.isEmpty() && !txtConst.equals("+ Subir un Archivo...")) {
+                File archivoOriginal = new File(txtConst);
                 Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
                 Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
             }
-            
-            //ficha postulante
-            if (!btnFichaPostulante.getText().isEmpty()) {
-                File archivoOriginal = new File(btnFichaPostulante.getText());
+
+            //Ficha postulante
+            String txtFicha = btnFichaPostulante.getText().trim();
+            if (!txtFicha.isEmpty() && !txtFicha.equals("+ Subir un Archivo...")) {
+                File archivoOriginal = new File(txtFicha);
                 Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
                 Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
             }
-            
-            //declaracion antecedentes
-            if (!btnDeclaracionAntecedentes.getText().isEmpty()) {
-                File archivoOriginal = new File(btnDeclaracionAntecedentes.getText());
+
+            //Declaración de antecedentes
+            String txtAnte = btnDeclaracionAntecedentes.getText().trim();
+            if (!txtAnte.isEmpty() && !txtAnte.equals("+ Subir un Archivo...")) {
+                File archivoOriginal = new File(txtAnte);
                 Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
                 Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
             }
-            
-            //solo menores, autorizacion notarial
-            if (!btnAutorizacionNotarial.getText().isEmpty()) {
-                File archivoOriginal = new File(btnAutorizacionNotarial.getText());
+
+            //Autorizacion notarial (solo menores)
+            String txtAuto = btnAutorizacionNotarial.getText().trim();
+            if (!txtAuto.isEmpty() && !txtAuto.equals("+ Subir un Archivo...")) {
+                File archivoOriginal = new File(txtAuto);
                 Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
                 Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
             }
+
+            //cambiar card
+            java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+            card.show(mainPanel, "paginaFinal");
+            state = 10;
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al guardar: " + e.getMessage());
@@ -2975,6 +3025,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnVolNo;
     private javax.swing.JRadioButton btnVolSi;
     private javax.swing.JPanel franjaRojaInicial;
+    private javax.swing.JPanel franjaRojaInicial1;
     private javax.swing.ButtonGroup grupoCompromisoCapacitacion;
     private javax.swing.ButtonGroup grupoEntrenamiento;
     private javax.swing.ButtonGroup grupoLicencia;
@@ -2986,6 +3037,8 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JLabel iconoBomberos3;
     private javax.swing.JLabel iconoBomberos4;
     private javax.swing.JLabel iconoBomberosInicial;
+    private javax.swing.JLabel iconoBomberosInicial1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3025,9 +3078,11 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JPanel paginaDatosPersonales;
     private javax.swing.JPanel paginaDocumentacion;
     private javax.swing.JPanel paginaExperienciaYMotivacion;
+    private javax.swing.JPanel paginaFinal;
     private javax.swing.JPanel paginaHabilidades;
     private javax.swing.JPanel paginaInicio;
     private javax.swing.JPanel panel;
+    private javax.swing.JPanel panel1;
     private javax.swing.JPanel panelContenido;
     private javax.swing.JPanel panelContenido1;
     private javax.swing.JPanel panelContenido2;
