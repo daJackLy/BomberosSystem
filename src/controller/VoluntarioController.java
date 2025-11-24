@@ -1,4 +1,4 @@
-public boolean procesarFormulario() {
+/*public boolean procesarFormulario() {
     try {
         logger.info("Iniciando procesamiento de formulario...");
 
@@ -32,4 +32,4 @@ public boolean procesarFormulario() {
             JOptionPane.ERROR_MESSAGE);
         return false;
     }
-}
+}*/

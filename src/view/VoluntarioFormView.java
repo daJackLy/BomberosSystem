@@ -14,7 +14,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private String tipo = "";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VoluntarioFormView.class.getName());
     private ExportarDatosService exportarService = new ExportarDatosService();
-    private VoluntarioController voluntarioController;
+    /*private VoluntarioController voluntarioController;*/
 
     public VoluntarioFormView() {
         initComponents();
@@ -28,7 +28,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         mainPanel.add(paginaFinal, "paginaFinal");
         
         // Inicializar el controlador
-        voluntarioController = new VoluntarioController(this);
+        /*voluntarioController = new VoluntarioController(this);*/
         
         //listener para calcular edad
         txtFec.getDateEditor().addPropertyChangeListener(evt -> {
@@ -158,118 +158,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
             txtEda.setText("");
             btnAutorizacionNotarial.setEnabled(false);
             tipo = "";
-        }
-    }
-
-    // Métodos getter para el controlador (agrega estos métodos)
-    public JTextField getTxtNom() { return txtNom; }
-    public JTextField getTxtApe() { return txtApe; }
-    public JTextField getTxtDni() { return txtDni; }
-    public com.toedter.calendar.JDateChooser getTxtFec() { return txtFec; }
-    public JTextField getTxtEda() { return txtEda; }
-    public JTextField getTxtCor() { return txtCor; }
-    public JTextField getTxtTel() { return txtTel; }
-    public javax.swing.JComboBox<String> getTxtDis() { return txtDis; }
-    public JTextField getTxtDir() { return txtDir; }
-    public JTextField getTxtRef() { return txtRef; }
-    public javax.swing.JRadioButton getBtnSexMasculino() { return btnSexMasculino; }
-    public javax.swing.JRadioButton getBtnLicSi() { return btnLicSi; }
-    public javax.swing.JRadioButton getBtnVolSi() { return btnVolSi; }
-    public javax.swing.JComboBox<String> getTxtExpPrevia() { return txtExpPrevia; }
-    public javax.swing.JCheckBox getBtnCapaCRoja() { return btnCapaCRoja; }
-    public javax.swing.JCheckBox getBtnCapaPNPFFAA() { return btnCapaPNPFFAA; }
-    public javax.swing.JCheckBox getBtnCapaDCivil() { return btnCapaDCivil; }
-    public javax.swing.JCheckBox getBtnCapaOtros() { return btnCapaOtros; }
-    public JTextField getTxtMot() { return txtMot; }
-    public JTextField getTxtAport() { return txtAport; }
-    public JTextField getTxtManejo() { return txtManejo; }
-    public javax.swing.JRadioButton getBtnEntrSi() { return btnEntrSi; }
-    public javax.swing.JRadioButton getBtnCompCapaSi() { return btnCompCapaSi; }
-    public JTextField getTxtDiscap() { return txtDiscap; }
-    public javax.swing.JComboBox<String> getTxtDisp() { return txtDisp; }
-    
-    // Getters para las habilidades (checkboxes)
-    public javax.swing.JCheckBox getBtnSkillPrimerosAuxiliosBasicos() { return btnSkillPrimerosAuxiliosBasicos; }
-    public javax.swing.JCheckBox getBtnSkillRCP() { return btnSkillRCP; }
-    public javax.swing.JCheckBox getBtnSkillControlHemorragias() { return btnSkillControlHemorragias; }
-    public javax.swing.JCheckBox getBtnSkillFracturas() { return btnSkillFracturas; }
-    public javax.swing.JCheckBox getBtnSkillEvacHeridos() { return btnSkillEvacHeridos; }
-    public javax.swing.JCheckBox getBtnSkillBusqRescate() { return btnSkillBusqRescate; }
-    public javax.swing.JCheckBox getBtnSkillRescVehicular() { return btnSkillRescVehicular; }
-    public javax.swing.JCheckBox getBtnSkillRescAcuatico() { return btnSkillRescAcuatico; }
-    public javax.swing.JCheckBox getBtnSkillRescAltura() { return btnSkillRescAltura; }
-    public javax.swing.JCheckBox getBtnSkillCampoSelva() { return btnSkillCampoSelva; }
-    public javax.swing.JCheckBox getBtnSkillExtintores() { return btnSkillExtintores; }
-    public javax.swing.JCheckBox getBtnSkillManguerasAgua() { return btnSkillManguerasAgua; }
-    public javax.swing.JCheckBox getBtnSkillUsoERA() { return btnSkillUsoERA; }
-    public javax.swing.JCheckBox getBtnSkillMatInflamables() { return btnSkillMatInflamables; }
-    public javax.swing.JCheckBox getBtnSkillIncendiosForestales() { return btnSkillIncendiosForestales; }
-    public javax.swing.JCheckBox getBtnSkillIncendiosEstructurales() { return btnSkillIncendiosEstructurales; }
-    public javax.swing.JCheckBox getBtnSkillIncendiosVehiculares() { return btnSkillIncendiosVehiculares; }
-    public javax.swing.JCheckBox getBtnSkillPrevIncendiosDomesticos() { return btnSkillPrevIncendiosDomesticos; }
-    public javax.swing.JCheckBox getBtnSkillMecanica() { return btnSkillMecanica; }
-    public javax.swing.JCheckBox getBtnSkillElectricidad() { return btnSkillElectricidad; }
-    public javax.swing.JCheckBox getBtnSkillCarpinteria() { return btnSkillCarpinteria; }
-    public javax.swing.JCheckBox getBtnSkillAlbanileria() { return btnSkillAlbanileria; }
-    public javax.swing.JCheckBox getBtnSkillSoldadura() { return btnSkillSoldadura; }
-    public javax.swing.JCheckBox getBtnSkillHerramientas() { return btnSkillHerramientas; }
-    public javax.swing.JCheckBox getBtnSkillConduccionVehicPesados() { return btnSkillConduccionVehicPesados; }
-    public javax.swing.JCheckBox getBtnSkillRadioComunicaciones() { return btnSkillRadioComunicaciones; }
-    public javax.swing.JCheckBox getBtnSkillCoordinacionGrupos() { return btnSkillCoordinacionGrupos; }
-    public javax.swing.JCheckBox getBtnSkillGestionEmergencias() { return btnSkillGestionEmergencias; }
-    public javax.swing.JCheckBox getBtnSkillLogisticaSuministros() { return btnSkillLogisticaSuministros; }
-    public javax.swing.JCheckBox getBtnSkillComunicacionEfectiva() { return btnSkillComunicacionEfectiva; }
-    public javax.swing.JCheckBox getBtnSkillCapacitacionEnsenanza() { return btnSkillCapacitacionEnsenanza; }
-    public javax.swing.JCheckBox getBtnSkillRutasEvacuaciones() { return btnSkillRutasEvacuaciones; }
-    public javax.swing.JCheckBox getBtnSkillInformatica() { return btnSkillInformatica; }
-    public javax.swing.JCheckBox getBtnSkillIngles() { return btnSkillIngles; }
-    public javax.swing.JCheckBox getBtnSkillDocumentacion() { return btnSkillDocumentacion; }
-    public javax.swing.JCheckBox getBtnSkillFotografia() { return btnSkillFotografia; }
-    public javax.swing.JCheckBox getBtnSkillEntrFisicoRegular() { return btnSkillEntrFisicoRegular; }
-    public javax.swing.JCheckBox getBtnSkillNatacion() { return btnSkillNatacion; }
-    public javax.swing.JCheckBox getBtnSkillEscalada() { return btnSkillEscalada; }
-    public javax.swing.JCheckBox getBtnSkillMarchaCaminata() { return btnSkillMarchaCaminata; }
-    public javax.swing.JCheckBox getBtnSkillCargaPeso() { return btnSkillCargaPeso; }
-
-    // El resto de tu código generado por NetBeans permanece igual...
-    // [TODO: Aquí va TODO el código generado por NetBeans que ya tienes]
-    // Solo reemplaza el método btn4EntregarFormularioActionPerformed
-
-    private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {
-    // SOLO delegar al controlador - eliminar toda la lógica de aquí
-    boolean exito = voluntarioController.procesarFormulario();
-    
-    if (exito) {
-        // Cambiar a página final si fue exitoso
-        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
-        card.show(mainPanel, "paginaFinal");
-        state = 10;
-    }
-}
-
-private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {
-    // SOLO delegar al controlador - eliminar toda la lógica de aquí
-    boolean exito = voluntarioController.procesarFormulario();
-    
-    if (exito) {
-        // Cambiar a página final si fue exitoso
-        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
-        card.show(mainPanel, "paginaFinal");
-        state = 10;
-    }
-}
-
-
-    private void copiarArchivo(JButton botonArchivo, File carpetaDestino) {
-        try {
-            String textoBoton = botonArchivo.getText().trim();
-            if (!textoBoton.isEmpty() && !textoBoton.equals("+ Subir un Archivo...")) {
-                File archivoOriginal = new File(textoBoton);
-                Path destino = Paths.get(carpetaDestino.getPath(), archivoOriginal.getName());
-                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
-            }
-        } catch (Exception e) {
-            System.out.println("Error al copiar archivo: " + e.getMessage());
         }
     }
 
