@@ -1,36 +1,48 @@
 package model;
 
 public class DatosPersonales {
-
-    private String direccion;
-    private String distrito;
-    private String referencia;
+    private String nombres;
+    private String apellidos;
+    private int dni;
+    private String fechaNacimiento;
+    private int edad;
+    private String sexo;
     private String correo;
     private int telefono;
+    private boolean poseeLicencia;
+    private String distrito;
+    private String direccion;
+    private String referencia;
 
-    public DatosPersonales() {}
-
-    public DatosPersonales(String direccion, String distrito, String referencia, String correo, int telefono) {
-        this.direccion = direccion;
-        this.distrito = distrito;
-        this.referencia = referencia;
+    // constructor
+    public DatosPersonales(String nombres, String apellidos, int dni, String fechaNacimiento,
+                           int edad, String sexo, String correo, int telefono,
+                           boolean poseeLicencia, String distrito, String direccion, String referencia) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.sexo = sexo;
         this.correo = correo;
         this.telefono = telefono;
+        this.poseeLicencia = poseeLicencia;
+        this.distrito = distrito;
+        this.direccion = direccion;
+        this.referencia = referencia;
     }
 
-    // getters y setters
-    public String getDireccion() { return direccion; }
-    public void setDireccion(String direccion) { this.direccion = direccion; }
-
-    public String getDistrito() { return distrito; }
-    public void setDistrito(String distrito) { this.distrito = distrito; }
-
-    public String getReferencia() { return referencia; }
-    public void setReferencia(String referencia) { this.referencia = referencia; }
-
+    // getters
+    public String getNombres() { return nombres; }
+    public String getApellidos() { return apellidos; }
+    public int getDni() { return dni; }
+    public String getFechaNacimiento() { return fechaNacimiento; }
+    public int getEdad() { return edad; }
+    public String getSexo() { return sexo; }
     public String getCorreo() { return correo; }
-    public void setCorreo(String correo) { this.correo = correo; }
-
     public int getTelefono() { return telefono; }
-    public void setTelefono(int telefono) { this.telefono = telefono; }
+    public boolean isPoseeLicencia() { return poseeLicencia; }
+    public String getDistrito() { return distrito; }
+    public String getDireccion() { return direccion; }
+    public String getReferencia() { return referencia; }
 }
