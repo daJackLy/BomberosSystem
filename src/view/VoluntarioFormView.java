@@ -1,10 +1,19 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import java.io.*;
+import java.nio.file.*;
+import javax.swing.JTextField;
+import model.*;
+import controller.*;
+
 
 public class VoluntarioFormView extends javax.swing.JFrame {
     private int state = 0;
+    private String tipo = "";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VoluntarioFormView.class.getName());
+    private ExportarDatosService exportarService = new ExportarDatosService();
 
     public VoluntarioFormView() {
         initComponents();
@@ -107,7 +116,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }
 }
     
-    private void calcularEdad() {
+        private void calcularEdad() {
         java.util.Date fechaNac = txtFec.getDate();
         if (fechaNac != null) {
             java.time.LocalDate nacimiento = fechaNac.toInstant()
@@ -119,18 +128,34 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
             if (edad < 16) {
                 txtEda.setText("");
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                        "Debes tener al menos 16 años para postular como voluntario.", 
-                        "Edad insuficiente", 
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Debes tener al menos 16 años para postular como voluntario.",
+                        "Edad insuficiente",
                         javax.swing.JOptionPane.WARNING_MESSAGE);
                 txtFec.setDate(null);
-            } else {
-                txtEda.setText(String.valueOf(edad));
+                btnAutorizacionNotarial.setEnabled(false);
+                tipo = "";
+                return;
             }
+
+            txtEda.setText(String.valueOf(edad));
+
+            if (edad >= 16 && edad < 18) {
+                tipo = "joven";
+                btnAutorizacionNotarial.setEnabled(true);
+            } 
+            else {
+                tipo = "nuevo";
+                btnAutorizacionNotarial.setEnabled(false);
+            }
+
         } else {
             txtEda.setText("");
+            btnAutorizacionNotarial.setEnabled(false);
+            tipo = "";
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,7 +293,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         txtDiscap = new javax.swing.JTextField();
         lblDisp = new javax.swing.JLabel();
         txtDisp = new javax.swing.JComboBox<>();
-        DATOSPERSONALES2 = new javax.swing.JLabel();
         panelInferior2 = new javax.swing.JPanel();
         btn2SiguientePagina = new javax.swing.JButton();
         btn2PaginaAnterior = new javax.swing.JButton();
@@ -325,15 +349,15 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         btnSkillRutasEvacuaciones = new javax.swing.JCheckBox();
         HABILIDADES6 = new javax.swing.JLabel();
         btnSkillInformatica = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos34 = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos35 = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos33 = new javax.swing.JCheckBox();
+        btnSkillIngles = new javax.swing.JCheckBox();
+        btnSkillDocumentacion = new javax.swing.JCheckBox();
+        btnSkillFotografia = new javax.swing.JCheckBox();
         HABILIDADES7 = new javax.swing.JLabel();
-        btnSkillPrimerosAuxiliosBasicos36 = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos37 = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos38 = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos39 = new javax.swing.JCheckBox();
-        btnSkillPrimerosAuxiliosBasicos40 = new javax.swing.JCheckBox();
+        btnSkillEntrFisicoRegular = new javax.swing.JCheckBox();
+        btnSkillNatacion = new javax.swing.JCheckBox();
+        btnSkillEscalada = new javax.swing.JCheckBox();
+        btnSkillMarchaCaminata = new javax.swing.JCheckBox();
+        btnSkillCargaPeso = new javax.swing.JCheckBox();
         HABILIDADES8 = new javax.swing.JLabel();
         panelInferior3 = new javax.swing.JPanel();
         btn3SiguientePagina = new javax.swing.JButton();
@@ -357,16 +381,16 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         ESPACIO13 = new javax.swing.JLabel();
         lblAdjuntarIdentificacion = new javax.swing.JLabel();
         btnAdjuntarIdentificacion = new javax.swing.JButton();
-        lblAdjuntarIdentificacion1 = new javax.swing.JLabel();
-        btnAdjuntarIdentificacion1 = new javax.swing.JButton();
-        lblAdjuntarIdentificacion2 = new javax.swing.JLabel();
-        btnAdjuntarIdentificacion2 = new javax.swing.JButton();
-        lblAdjuntarIdentificacion3 = new javax.swing.JLabel();
-        btnAdjuntarIdentificacion3 = new javax.swing.JButton();
-        lblAdjuntarIdentificacion4 = new javax.swing.JLabel();
-        btnAdjuntarIdentificacion4 = new javax.swing.JButton();
-        lblAdjuntarIdentificacion5 = new javax.swing.JLabel();
-        btnAdjuntarIdentificacion5 = new javax.swing.JButton();
+        lblCertDomiciliario = new javax.swing.JLabel();
+        btnCertDomiciliario = new javax.swing.JButton();
+        lblConstancia = new javax.swing.JLabel();
+        btnConstancia = new javax.swing.JButton();
+        lblFichaPostulante = new javax.swing.JLabel();
+        btnFichaPostulante = new javax.swing.JButton();
+        lblDeclaracionAntecedentes = new javax.swing.JLabel();
+        btnDeclaracionAntecedentes = new javax.swing.JButton();
+        lblAutorizacionNotarial = new javax.swing.JLabel();
+        btnAutorizacionNotarial = new javax.swing.JButton();
         panelInferior4 = new javax.swing.JPanel();
         btn4EntregarFormulario = new javax.swing.JButton();
         btn4PaginaAnterior = new javax.swing.JButton();
@@ -1194,14 +1218,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         txtDisp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Horario Flexible", "Fines de semana", "Mañana", "Tarde", "Noche" }));
         panelFormulario2.add(txtDisp);
 
-        DATOSPERSONALES2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        DATOSPERSONALES2.setForeground(new java.awt.Color(0, 0, 0));
-        DATOSPERSONALES2.setText("<html>INFORMACIÓN DE CONTACTO</html>");
-        DATOSPERSONALES2.setMaximumSize(new java.awt.Dimension(90, 60));
-        DATOSPERSONALES2.setMinimumSize(new java.awt.Dimension(90, 60));
-        DATOSPERSONALES2.setPreferredSize(new java.awt.Dimension(90, 30));
-        panelFormulario2.add(DATOSPERSONALES2);
-
         panelContenido2.add(panelFormulario2);
 
         scroll2.setViewportView(panelContenido2);
@@ -1748,38 +1764,38 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         });
         panelFormulario3.add(btnSkillInformatica);
 
-        btnSkillPrimerosAuxiliosBasicos34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos34.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos34.setText("Inglés avanzado");
-        btnSkillPrimerosAuxiliosBasicos34.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos34.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillIngles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillIngles.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillIngles.setText("Inglés avanzado");
+        btnSkillIngles.setName(""); // NOI18N
+        btnSkillIngles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos34ActionPerformed(evt);
+                btnSkillInglesActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos34);
+        panelFormulario3.add(btnSkillIngles);
 
-        btnSkillPrimerosAuxiliosBasicos35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos35.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos35.setText("Documentación");
-        btnSkillPrimerosAuxiliosBasicos35.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos35.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillDocumentacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillDocumentacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillDocumentacion.setText("Documentación");
+        btnSkillDocumentacion.setName(""); // NOI18N
+        btnSkillDocumentacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos35ActionPerformed(evt);
+                btnSkillDocumentacionActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos35);
+        panelFormulario3.add(btnSkillDocumentacion);
 
-        btnSkillPrimerosAuxiliosBasicos33.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos33.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos33.setText("Fotografía");
-        btnSkillPrimerosAuxiliosBasicos33.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos33.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillFotografia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillFotografia.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillFotografia.setText("Fotografía");
+        btnSkillFotografia.setName(""); // NOI18N
+        btnSkillFotografia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos33ActionPerformed(evt);
+                btnSkillFotografiaActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos33);
+        panelFormulario3.add(btnSkillFotografia);
 
         HABILIDADES7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         HABILIDADES7.setForeground(new java.awt.Color(180, 15, 15));
@@ -1789,61 +1805,61 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         HABILIDADES7.setPreferredSize(new java.awt.Dimension(90, 30));
         panelFormulario3.add(HABILIDADES7);
 
-        btnSkillPrimerosAuxiliosBasicos36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos36.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos36.setText("Entrenamiento físico regular");
-        btnSkillPrimerosAuxiliosBasicos36.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos36.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillEntrFisicoRegular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillEntrFisicoRegular.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillEntrFisicoRegular.setText("Entrenamiento físico regular");
+        btnSkillEntrFisicoRegular.setName(""); // NOI18N
+        btnSkillEntrFisicoRegular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos36ActionPerformed(evt);
+                btnSkillEntrFisicoRegularActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos36);
+        panelFormulario3.add(btnSkillEntrFisicoRegular);
 
-        btnSkillPrimerosAuxiliosBasicos37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos37.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos37.setText("Natación");
-        btnSkillPrimerosAuxiliosBasicos37.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos37.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillNatacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillNatacion.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillNatacion.setText("Natación");
+        btnSkillNatacion.setName(""); // NOI18N
+        btnSkillNatacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos37ActionPerformed(evt);
+                btnSkillNatacionActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos37);
+        panelFormulario3.add(btnSkillNatacion);
 
-        btnSkillPrimerosAuxiliosBasicos38.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos38.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos38.setText("Escalada");
-        btnSkillPrimerosAuxiliosBasicos38.setToolTipText("");
-        btnSkillPrimerosAuxiliosBasicos38.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos38.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillEscalada.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillEscalada.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillEscalada.setText("Escalada");
+        btnSkillEscalada.setToolTipText("");
+        btnSkillEscalada.setName(""); // NOI18N
+        btnSkillEscalada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos38ActionPerformed(evt);
+                btnSkillEscaladaActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos38);
+        panelFormulario3.add(btnSkillEscalada);
 
-        btnSkillPrimerosAuxiliosBasicos39.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos39.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos39.setText("Marcha o caminata larga");
-        btnSkillPrimerosAuxiliosBasicos39.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos39.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillMarchaCaminata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillMarchaCaminata.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillMarchaCaminata.setText("Marcha o caminata larga");
+        btnSkillMarchaCaminata.setName(""); // NOI18N
+        btnSkillMarchaCaminata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos39ActionPerformed(evt);
+                btnSkillMarchaCaminataActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos39);
+        panelFormulario3.add(btnSkillMarchaCaminata);
 
-        btnSkillPrimerosAuxiliosBasicos40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos40.setForeground(new java.awt.Color(0, 0, 0));
-        btnSkillPrimerosAuxiliosBasicos40.setText("Tareas de carga o levantamiento de peso");
-        btnSkillPrimerosAuxiliosBasicos40.setName(""); // NOI18N
-        btnSkillPrimerosAuxiliosBasicos40.addActionListener(new java.awt.event.ActionListener() {
+        btnSkillCargaPeso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSkillCargaPeso.setForeground(new java.awt.Color(0, 0, 0));
+        btnSkillCargaPeso.setText("Tareas de carga o levantamiento de peso");
+        btnSkillCargaPeso.setName(""); // NOI18N
+        btnSkillCargaPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkillPrimerosAuxiliosBasicos40ActionPerformed(evt);
+                btnSkillCargaPesoActionPerformed(evt);
             }
         });
-        panelFormulario3.add(btnSkillPrimerosAuxiliosBasicos40);
+        panelFormulario3.add(btnSkillCargaPeso);
 
         HABILIDADES8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         HABILIDADES8.setForeground(new java.awt.Color(0, 0, 0));
@@ -2010,62 +2026,93 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         btnAdjuntarIdentificacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAdjuntarIdentificacion.setForeground(new java.awt.Color(255, 255, 255));
         btnAdjuntarIdentificacion.setText("+ Subir un Archivo...");
+        btnAdjuntarIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdjuntarIdentificacionActionPerformed(evt);
+            }
+        });
         panelFormulario4.add(btnAdjuntarIdentificacion);
 
-        lblAdjuntarIdentificacion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdjuntarIdentificacion1.setForeground(new java.awt.Color(0, 0, 0));
-        lblAdjuntarIdentificacion1.setText("<html>Certificado domiciliario: <html>");
-        panelFormulario4.add(lblAdjuntarIdentificacion1);
+        lblCertDomiciliario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCertDomiciliario.setForeground(new java.awt.Color(0, 0, 0));
+        lblCertDomiciliario.setText("<html>Certificado domiciliario: <html>");
+        panelFormulario4.add(lblCertDomiciliario);
 
-        btnAdjuntarIdentificacion1.setBackground(new java.awt.Color(180, 15, 15));
-        btnAdjuntarIdentificacion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAdjuntarIdentificacion1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdjuntarIdentificacion1.setText("+ Subir un Archivo...");
-        panelFormulario4.add(btnAdjuntarIdentificacion1);
+        btnCertDomiciliario.setBackground(new java.awt.Color(180, 15, 15));
+        btnCertDomiciliario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCertDomiciliario.setForeground(new java.awt.Color(255, 255, 255));
+        btnCertDomiciliario.setText("+ Subir un Archivo...");
+        btnCertDomiciliario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCertDomiciliarioActionPerformed(evt);
+            }
+        });
+        panelFormulario4.add(btnCertDomiciliario);
 
-        lblAdjuntarIdentificacion2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdjuntarIdentificacion2.setForeground(new java.awt.Color(0, 0, 0));
-        lblAdjuntarIdentificacion2.setText("<html>Constancia de estudios o trabajo: <html>");
-        panelFormulario4.add(lblAdjuntarIdentificacion2);
+        lblConstancia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblConstancia.setForeground(new java.awt.Color(0, 0, 0));
+        lblConstancia.setText("<html>Constancia de estudios o trabajo: <html>");
+        panelFormulario4.add(lblConstancia);
 
-        btnAdjuntarIdentificacion2.setBackground(new java.awt.Color(180, 15, 15));
-        btnAdjuntarIdentificacion2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAdjuntarIdentificacion2.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdjuntarIdentificacion2.setText("+ Subir un Archivo...");
-        panelFormulario4.add(btnAdjuntarIdentificacion2);
+        btnConstancia.setBackground(new java.awt.Color(180, 15, 15));
+        btnConstancia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConstancia.setForeground(new java.awt.Color(255, 255, 255));
+        btnConstancia.setText("+ Subir un Archivo...");
+        btnConstancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConstanciaActionPerformed(evt);
+            }
+        });
+        panelFormulario4.add(btnConstancia);
 
-        lblAdjuntarIdentificacion3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdjuntarIdentificacion3.setForeground(new java.awt.Color(0, 0, 0));
-        lblAdjuntarIdentificacion3.setText("<html>Ficha única de postulante: <html>");
-        panelFormulario4.add(lblAdjuntarIdentificacion3);
+        lblFichaPostulante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblFichaPostulante.setForeground(new java.awt.Color(0, 0, 0));
+        lblFichaPostulante.setText("<html>Ficha única de postulante: <html>");
+        panelFormulario4.add(lblFichaPostulante);
 
-        btnAdjuntarIdentificacion3.setBackground(new java.awt.Color(180, 15, 15));
-        btnAdjuntarIdentificacion3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAdjuntarIdentificacion3.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdjuntarIdentificacion3.setText("+ Subir un Archivo...");
-        panelFormulario4.add(btnAdjuntarIdentificacion3);
+        btnFichaPostulante.setBackground(new java.awt.Color(180, 15, 15));
+        btnFichaPostulante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnFichaPostulante.setForeground(new java.awt.Color(255, 255, 255));
+        btnFichaPostulante.setText("+ Subir un Archivo...");
+        btnFichaPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFichaPostulanteActionPerformed(evt);
+            }
+        });
+        panelFormulario4.add(btnFichaPostulante);
 
-        lblAdjuntarIdentificacion4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdjuntarIdentificacion4.setForeground(new java.awt.Color(0, 0, 0));
-        lblAdjuntarIdentificacion4.setText("<html>Declaracion jurada de antecedentes <br>penales o policiales<html>");
-        panelFormulario4.add(lblAdjuntarIdentificacion4);
+        lblDeclaracionAntecedentes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblDeclaracionAntecedentes.setForeground(new java.awt.Color(0, 0, 0));
+        lblDeclaracionAntecedentes.setText("<html>Declaracion jurada de antecedentes <br>penales o policiales<html>");
+        panelFormulario4.add(lblDeclaracionAntecedentes);
 
-        btnAdjuntarIdentificacion4.setBackground(new java.awt.Color(180, 15, 15));
-        btnAdjuntarIdentificacion4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAdjuntarIdentificacion4.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdjuntarIdentificacion4.setText("+ Subir un Archivo...");
-        panelFormulario4.add(btnAdjuntarIdentificacion4);
+        btnDeclaracionAntecedentes.setBackground(new java.awt.Color(180, 15, 15));
+        btnDeclaracionAntecedentes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDeclaracionAntecedentes.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeclaracionAntecedentes.setText("+ Subir un Archivo...");
+        btnDeclaracionAntecedentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeclaracionAntecedentesActionPerformed(evt);
+            }
+        });
+        panelFormulario4.add(btnDeclaracionAntecedentes);
 
-        lblAdjuntarIdentificacion5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdjuntarIdentificacion5.setForeground(new java.awt.Color(102, 102, 102));
-        lblAdjuntarIdentificacion5.setText("<html>(Solo menores de edad) <br> Autorización Notarial<html>");
-        panelFormulario4.add(lblAdjuntarIdentificacion5);
+        lblAutorizacionNotarial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAutorizacionNotarial.setForeground(new java.awt.Color(60, 60, 60));
+        lblAutorizacionNotarial.setText("<html>(Solo menores de edad) <br> Autorización Notarial<html>");
+        panelFormulario4.add(lblAutorizacionNotarial);
 
-        btnAdjuntarIdentificacion5.setBackground(new java.awt.Color(153, 153, 153));
-        btnAdjuntarIdentificacion5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAdjuntarIdentificacion5.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdjuntarIdentificacion5.setText("+ Subir un Archivo...");
-        panelFormulario4.add(btnAdjuntarIdentificacion5);
+        btnAutorizacionNotarial.setBackground(new java.awt.Color(180, 15, 15));
+        btnAutorizacionNotarial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAutorizacionNotarial.setForeground(new java.awt.Color(255, 255, 255));
+        btnAutorizacionNotarial.setText("+ Subir un Archivo...");
+        btnAutorizacionNotarial.setEnabled(false);
+        btnAutorizacionNotarial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutorizacionNotarialActionPerformed(evt);
+            }
+        });
+        panelFormulario4.add(btnAutorizacionNotarial);
 
         panelContenido4.add(panelFormulario4);
 
@@ -2288,37 +2335,37 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         actualizarBotones();
     }//GEN-LAST:event_btn3SiguientePaginaActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos40ActionPerformed
+    private void btnSkillCargaPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillCargaPesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos40ActionPerformed
+    }//GEN-LAST:event_btnSkillCargaPesoActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos39ActionPerformed
+    private void btnSkillMarchaCaminataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillMarchaCaminataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos39ActionPerformed
+    }//GEN-LAST:event_btnSkillMarchaCaminataActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos38ActionPerformed
+    private void btnSkillEscaladaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillEscaladaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos38ActionPerformed
+    }//GEN-LAST:event_btnSkillEscaladaActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos37ActionPerformed
+    private void btnSkillNatacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillNatacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos37ActionPerformed
+    }//GEN-LAST:event_btnSkillNatacionActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos36ActionPerformed
+    private void btnSkillEntrFisicoRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillEntrFisicoRegularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos36ActionPerformed
+    }//GEN-LAST:event_btnSkillEntrFisicoRegularActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos33ActionPerformed
+    private void btnSkillFotografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillFotografiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos33ActionPerformed
+    }//GEN-LAST:event_btnSkillFotografiaActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos35ActionPerformed
+    private void btnSkillDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillDocumentacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos35ActionPerformed
+    }//GEN-LAST:event_btnSkillDocumentacionActionPerformed
 
-    private void btnSkillPrimerosAuxiliosBasicos34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillPrimerosAuxiliosBasicos34ActionPerformed
+    private void btnSkillInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillInglesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSkillPrimerosAuxiliosBasicos34ActionPerformed
+    }//GEN-LAST:event_btnSkillInglesActionPerformed
 
     private void btnSkillInformaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkillInformaticaActionPerformed
         // TODO add your handling code here:
@@ -2545,8 +2592,238 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4PaginaAnteriorActionPerformed
 
     private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4EntregarFormularioActionPerformed
-        // TODO add your handling code here:
+        //obtener tipo
+        if (tipo.equals("joven")) {
+            tipo = "joven";
+        } else {
+            if (btnVolSi.isSelected()) {
+                tipo = "reingreso";
+            } else {
+                tipo = "nuevo";
+            }
+        }
+        
+        // Construir txt de capacitacion
+        String participacion = "";
+
+        if (btnCapaCRoja.isSelected()) participacion += "CruzRoja, ";
+        if (btnCapaPNPFFAA.isSelected()) participacion += "Policia/FFAA, ";
+        if (btnCapaDCivil.isSelected()) participacion += "DefCivil, ";
+        if (btnCapaOtros.isSelected()) participacion += "Otros, ";
+
+
+        if (!participacion.isEmpty()) {
+            participacion = participacion.substring(0, participacion.length() - 2);
+        }
+        
+        Voluntario voluntario = VoluntarioFactory.crearVoluntario(tipo);
+        VoluntarioBuilder builder = new VoluntarioBuilder(voluntario);
+        
+        
+        builder
+        .withNombres(txtNom.getText())
+        .withApellidos(txtApe.getText())
+        .withDni(Integer.parseInt(txtDni.getText()))
+        .withFechaNacimiento(((JTextField)txtFec.getDateEditor().getUiComponent()).getText())
+        .withEdad(Integer.parseInt(txtEda.getText()))
+        .withSexo(btnSexMasculino.isSelected() ? "Masculino" : "Femenino")
+        .withCorreo(txtCor.getText())
+        .withTelefono(Integer.parseInt(txtTel.getText()))
+        .withPoseeLicencia(btnLicSi.isSelected())
+        .withDistrito(txtDis.getSelectedItem().toString())
+        .withDireccion(txtDir.getText())
+        .withReferencia(txtRef.getText())
+        .withVoluntarioAnteriormente(btnVolSi.isSelected())
+        .withExperienciaPrevia(txtExpPrevia.getSelectedItem().toString())
+        .withParticipacionProgramas(participacion)
+
+        .withPreguntaMotivacion(txtMot.getText())
+        .withPreguntaAporte(txtAport.getText())
+        .withPreguntaPresion(txtManejo.getText())
+        .withPreguntaEntrenamientoRegular(btnEntrSi.isSelected())
+        .withPreguntaCapacitacionesIniciales(btnCompCapaSi.isSelected())
+        .withPreguntaImpedimentoFisico(txtDiscap.getText())
+        .withHorarioColaborar(txtDisp.getSelectedItem().toString())
+
+        .withPrimAuxilios(btnSkillPrimerosAuxiliosBasicos.isSelected())
+        .withRcp(btnSkillRCP.isSelected())
+        .withControlHemorragias(btnSkillControlHemorragias.isSelected())
+        .withInmovilizacionFracturas(btnSkillFracturas.isSelected())
+        .withEvacuacionHeridos(btnSkillEvacHeridos.isSelected())
+        .withBusquedaRescate(btnSkillBusqRescate.isSelected())
+        .withRescateVehicular(btnSkillRescVehicular.isSelected())
+        .withRescateAcuatico(btnSkillRescAcuatico.isSelected())
+        .withRescateAlturas(btnSkillRescAltura.isSelected())
+        .withSupervivenciaCampoSelva(btnSkillCampoSelva.isSelected())
+
+        .withUsoExtintores(btnSkillExtintores.isSelected())
+        .withManejoMangueras(btnSkillManguerasAgua.isSelected())
+        .withERA(btnSkillUsoERA.isSelected())
+        .withIdentificacionInflamables(btnSkillMatInflamables.isSelected())
+        .withControlIncFforestales(btnSkillIncendiosForestales.isSelected())
+        .withControlIncEstructurales(btnSkillIncendiosEstructurales.isSelected())
+        .withControlIncVehiculares(btnSkillIncendiosVehiculares.isSelected())
+        .withControlIncDomesticos(btnSkillPrevIncendiosDomesticos.isSelected())
+
+        .withMecanica(btnSkillMecanica.isSelected())
+        .withElectricidad(btnSkillElectricidad.isSelected())
+        .withCarpinteria(btnSkillCarpinteria.isSelected())
+        .withAlbanileria(btnSkillAlbanileria.isSelected())
+        .withSoldadura(btnSkillSoldadura.isSelected())
+        .withUsoHerramientas(btnSkillHerramientas.isSelected())
+        .withConduccionVehiculosPesados(btnSkillConduccionVehicPesados.isSelected())
+        .withRadioComunicaciones(btnSkillRadioComunicaciones.isSelected())
+
+        .withCoordinacionGrupos(btnSkillCoordinacionGrupos.isSelected())
+        .withGestionEmergencias(btnSkillGestionEmergencias.isSelected())
+        .withLogisticaSuministros(btnSkillLogisticaSuministros.isSelected())
+        .withComunicacionEfectiva(btnSkillComunicacionEfectiva.isSelected())
+        .withCapacitacionEnsenanza(btnSkillCapacitacionEnsenanza.isSelected())
+        .withPlanificacionRutas(btnSkillRutasEvacuaciones.isSelected())
+
+        .withInformatica(btnSkillInformatica.isSelected())
+        .withIngles(btnSkillIngles.isSelected())
+        .withDocumentacion(btnSkillDocumentacion.isSelected())
+        .withFotografia(btnSkillFotografia.isSelected())
+
+        .withEntrenamientoRegular(btnSkillEntrFisicoRegular.isSelected())
+        .withNatacion(btnSkillNatacion.isSelected())
+        .withEscalada(btnSkillEscalada.isSelected())
+        .withMarcha(btnSkillMarchaCaminata.isSelected())
+        .withTareasCargaPeso(btnSkillCargaPeso.isSelected());
+        
+        voluntario = builder.build();
+        exportarService.exportarVoluntario(voluntario);
+
+            
+        File carpetaPrincipal = new File("Postulantes");
+            carpetaPrincipal.mkdir();
+            //Nombre carpeta del postulante
+            String carpetaNombre = voluntario.getNombres() + "_" + voluntario.getApellidos() + "_" + voluntario.getDni();
+
+            File carpetaPostulante = new File(carpetaPrincipal, carpetaNombre);
+            carpetaPostulante.mkdir();
+
+        try {
+            if (!btnAdjuntarIdentificacion.getText().isEmpty()) {
+                File archivoOriginal = new File(btnAdjuntarIdentificacion.getText());
+                Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
+                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            //cert domiciliario
+            if (!btnCertDomiciliario.getText().isEmpty()) {
+                File archivoOriginal = new File(btnCertDomiciliario.getText());
+                Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
+                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            //constancia
+            if (!btnConstancia.getText().isEmpty()) {
+                File archivoOriginal = new File(btnConstancia.getText());
+                Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
+                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            //ficha postulante
+            if (!btnFichaPostulante.getText().isEmpty()) {
+                File archivoOriginal = new File(btnFichaPostulante.getText());
+                Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
+                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            //declaracion antecedentes
+            if (!btnDeclaracionAntecedentes.getText().isEmpty()) {
+                File archivoOriginal = new File(btnDeclaracionAntecedentes.getText());
+                Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
+                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            //solo menores, autorizacion notarial
+            if (!btnAutorizacionNotarial.getText().isEmpty()) {
+                File archivoOriginal = new File(btnAutorizacionNotarial.getText());
+                Path destino = Paths.get(carpetaPostulante.getPath(), archivoOriginal.getName());
+                Files.copy(archivoOriginal.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al guardar: " + e.getMessage());
+        }
     }//GEN-LAST:event_btn4EntregarFormularioActionPerformed
+
+    private void btnAdjuntarIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjuntarIdentificacionActionPerformed
+                                          
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar archivo");
+
+        int resultado = fileChooser.showOpenDialog(this);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+            btnAdjuntarIdentificacion.setText(archivoSeleccionado.getAbsolutePath());
+        }
+
+    }//GEN-LAST:event_btnAdjuntarIdentificacionActionPerformed
+
+    private void btnConstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConstanciaActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar archivo");
+
+        int resultado = fileChooser.showOpenDialog(this);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+            btnConstancia.setText(archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnConstanciaActionPerformed
+
+    private void btnCertDomiciliarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCertDomiciliarioActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar archivo");
+
+        int resultado = fileChooser.showOpenDialog(this);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+            btnCertDomiciliario.setText(archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnCertDomiciliarioActionPerformed
+
+    private void btnFichaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaPostulanteActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar archivo");
+
+        int resultado = fileChooser.showOpenDialog(this);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+            btnFichaPostulante.setText(archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnFichaPostulanteActionPerformed
+
+    private void btnDeclaracionAntecedentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclaracionAntecedentesActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar archivo");
+
+        int resultado = fileChooser.showOpenDialog(this);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+            btnDeclaracionAntecedentes.setText(archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnDeclaracionAntecedentesActionPerformed
+
+    private void btnAutorizacionNotarialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorizacionNotarialActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar archivo");
+
+        int resultado = fileChooser.showOpenDialog(this);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+            btnAutorizacionNotarial.setText(archivoSeleccionado.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnAutorizacionNotarialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2576,7 +2853,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DATOSPERSONALES;
     private javax.swing.JLabel DATOSPERSONALES1;
-    private javax.swing.JLabel DATOSPERSONALES2;
     private javax.swing.JLabel DATOSPERSONALES3;
     private javax.swing.JLabel ESPACIO10;
     private javax.swing.JLabel ESPACIO11;
@@ -2637,19 +2913,19 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JButton btn4Habilidades;
     private javax.swing.JButton btn4PaginaAnterior;
     private javax.swing.JButton btnAdjuntarIdentificacion;
-    private javax.swing.JButton btnAdjuntarIdentificacion1;
-    private javax.swing.JButton btnAdjuntarIdentificacion2;
-    private javax.swing.JButton btnAdjuntarIdentificacion3;
-    private javax.swing.JButton btnAdjuntarIdentificacion4;
-    private javax.swing.JButton btnAdjuntarIdentificacion5;
+    private javax.swing.JButton btnAutorizacionNotarial;
     private javax.swing.JCheckBox btnCapaCRoja;
     private javax.swing.JCheckBox btnCapaDCivil;
     private javax.swing.JCheckBox btnCapaOtros;
     private javax.swing.JCheckBox btnCapaPNPFFAA;
+    private javax.swing.JButton btnCertDomiciliario;
     private javax.swing.JRadioButton btnCompCapaNo;
     private javax.swing.JRadioButton btnCompCapaSi;
+    private javax.swing.JButton btnConstancia;
+    private javax.swing.JButton btnDeclaracionAntecedentes;
     private javax.swing.JRadioButton btnEntrNo;
     private javax.swing.JRadioButton btnEntrSi;
+    private javax.swing.JButton btnFichaPostulante;
     private javax.swing.JRadioButton btnLicNo;
     private javax.swing.JRadioButton btnLicSi;
     private javax.swing.JRadioButton btnSexFemenino;
@@ -2658,14 +2934,19 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JCheckBox btnSkillBusqRescate;
     private javax.swing.JCheckBox btnSkillCampoSelva;
     private javax.swing.JCheckBox btnSkillCapacitacionEnsenanza;
+    private javax.swing.JCheckBox btnSkillCargaPeso;
     private javax.swing.JCheckBox btnSkillCarpinteria;
     private javax.swing.JCheckBox btnSkillComunicacionEfectiva;
     private javax.swing.JCheckBox btnSkillConduccionVehicPesados;
     private javax.swing.JCheckBox btnSkillControlHemorragias;
     private javax.swing.JCheckBox btnSkillCoordinacionGrupos;
+    private javax.swing.JCheckBox btnSkillDocumentacion;
     private javax.swing.JCheckBox btnSkillElectricidad;
+    private javax.swing.JCheckBox btnSkillEntrFisicoRegular;
+    private javax.swing.JCheckBox btnSkillEscalada;
     private javax.swing.JCheckBox btnSkillEvacHeridos;
     private javax.swing.JCheckBox btnSkillExtintores;
+    private javax.swing.JCheckBox btnSkillFotografia;
     private javax.swing.JCheckBox btnSkillFracturas;
     private javax.swing.JCheckBox btnSkillGestionEmergencias;
     private javax.swing.JCheckBox btnSkillHerramientas;
@@ -2673,20 +2954,15 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JCheckBox btnSkillIncendiosForestales;
     private javax.swing.JCheckBox btnSkillIncendiosVehiculares;
     private javax.swing.JCheckBox btnSkillInformatica;
+    private javax.swing.JCheckBox btnSkillIngles;
     private javax.swing.JCheckBox btnSkillLogisticaSuministros;
     private javax.swing.JCheckBox btnSkillManguerasAgua;
+    private javax.swing.JCheckBox btnSkillMarchaCaminata;
     private javax.swing.JCheckBox btnSkillMatInflamables;
     private javax.swing.JCheckBox btnSkillMecanica;
+    private javax.swing.JCheckBox btnSkillNatacion;
     private javax.swing.JCheckBox btnSkillPrevIncendiosDomesticos;
     private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos33;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos34;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos35;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos36;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos37;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos38;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos39;
-    private javax.swing.JCheckBox btnSkillPrimerosAuxiliosBasicos40;
     private javax.swing.JCheckBox btnSkillRCP;
     private javax.swing.JCheckBox btnSkillRadioComunicaciones;
     private javax.swing.JCheckBox btnSkillRescAcuatico;
@@ -2717,16 +2993,15 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel lblAdjuntarIdentificacion;
-    private javax.swing.JLabel lblAdjuntarIdentificacion1;
-    private javax.swing.JLabel lblAdjuntarIdentificacion2;
-    private javax.swing.JLabel lblAdjuntarIdentificacion3;
-    private javax.swing.JLabel lblAdjuntarIdentificacion4;
-    private javax.swing.JLabel lblAdjuntarIdentificacion5;
     private javax.swing.JLabel lblApe;
     private javax.swing.JLabel lblAport;
+    private javax.swing.JLabel lblAutorizacionNotarial;
     private javax.swing.JLabel lblCapa;
+    private javax.swing.JLabel lblCertDomiciliario;
     private javax.swing.JLabel lblCompCapa;
+    private javax.swing.JLabel lblConstancia;
     private javax.swing.JLabel lblCor;
+    private javax.swing.JLabel lblDeclaracionAntecedentes;
     private javax.swing.JLabel lblDir;
     private javax.swing.JLabel lblDis;
     private javax.swing.JLabel lblDiscap;
@@ -2736,6 +3011,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JLabel lblEntr;
     private javax.swing.JLabel lblExpPrevia;
     private javax.swing.JLabel lblFec;
+    private javax.swing.JLabel lblFichaPostulante;
     private javax.swing.JLabel lblLic;
     private javax.swing.JLabel lblManejo;
     private javax.swing.JLabel lblMot;
