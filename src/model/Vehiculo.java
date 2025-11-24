@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 public class CamionBomba extends Vehiculo {
 
@@ -6,3 +6,4 @@ public class CamionBomba extends Vehiculo {
         super(placa, "CamionBomba", "Disponible", capacidad);
     }
 }
+*/

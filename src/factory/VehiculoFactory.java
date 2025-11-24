@@ -1,4 +1,4 @@
-package factory;
+/*package factory;
 
 import model.Ambulancia;
 import model.CamionBomba;
@@ -26,3 +26,4 @@ public class VehiculoFactory {
         }
     }
 }
+*/

@@ -1,4 +1,4 @@
-package bomberossystem;
+/*package bomberossystem;
 
 import factory.VehiculoFactory;
 import model.Vehiculo;
@@ -14,3 +14,4 @@ public class PruebaVehiculo {
         System.out.println(v3);
     }
 }
+*/

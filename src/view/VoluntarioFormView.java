@@ -2624,7 +2624,6 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
     private void btn4EntregarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4EntregarFormularioActionPerformed
       
-
         //obtener tipo
         if (tipo.equals("joven")) {
             tipo = "joven";

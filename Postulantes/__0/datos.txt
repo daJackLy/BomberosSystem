@@ -1,0 +1,67 @@
+Nombres: 
+Apellidos: 
+DNI: 0
+Fecha de nacimiento: 
+Edad: 0
+Sexo: Femenino
+Correo: 
+Teléfono: 0
+Posee licencia: false
+Distrito: Ancon
+Dirección: 
+Referencia: 
+Voluntario anteriormente: false
+Experiencia previa: Ninguna experiencia
+Participación en programas: 
+Motivación: 
+Aporte: 
+Presión: 
+Entrenamiento regular: false
+Capacitaciones iniciales: false
+Impedimento físico: 
+Horario para colaborar: Horario Flexible
+HABILIDADES: 
+Primeros auxilios: false
+RCP: false
+Control de hemorragias: false
+Inmovilización de fracturas: false
+Evacuación de heridos: false
+Búsqueda y rescate: false
+Rescate vehicular: false
+Rescate acuático: false
+Rescate en alturas: false
+Supervivencia en campo/selva: false
+Uso de extintores: false
+Manejo de mangueras: false
+ERA: false
+Identificación de inflamables: false
+Control incendios forestales: false
+Control incendios estructurales: false
+Control incendios vehiculares: false
+Control incendios domésticos: false
+TECNICAS GENERALES: 
+Mecánica: false
+Electricidad: false
+Carpintería: false
+Albañilería: false
+Soldadura: false
+Uso de herramientas: false
+Conducción vehículos pesados: false
+Radio y comunicaciones: false
+Coordinación de grupos: false
+Gestión de emergencias: false
+Logística y suministros: false
+Comunicación efectiva: false
+Capacitación/Enseñanza: false
+Planificación de rutas: false
+Informática: false
+Inglés: false
+Documentación: false
+Fotografía: false
+CAPACIDAD FISICA: 
+Entrenamiento regular: false
+Natación: false
+Escalada: false
+Marcha: false
+Tareas de carga/peso: false
+Tipo de voluntario: nuevo
