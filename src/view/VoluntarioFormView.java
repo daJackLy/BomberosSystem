@@ -7,6 +7,8 @@ import java.nio.file.*;
 import javax.swing.JTextField;
 import model.*;
 import controller.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class VoluntarioFormView extends javax.swing.JFrame {
@@ -26,6 +28,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         mainPanel.add(paginaHabilidades, "paginaHabilidades");
         mainPanel.add(paginaDocumentacion, "paginaDocumentacion");
         mainPanel.add(paginaFinal, "paginaFinal");
+        mainPanel.add(paginaRegistros, "paginaRegistros");
         
         // Inicializar el controlador
         /*voluntarioController = new VoluntarioController(this);*/
@@ -35,7 +38,20 @@ public class VoluntarioFormView extends javax.swing.JFrame {
             if ("date".equals(evt.getPropertyName())) {
                 calcularEdad();
             }
-        });   
+        }); 
+        
+        //tabla
+        String[] columnas = {
+            "Nombres",
+            "Apellidos",
+            "DNI",
+            "Fecha Nac.",
+            "Edad",
+            "Sexo"
+        };
+
+        DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+        tablaPostulantes.setModel(modelo);
     }
     
     private void actualizarBotones() {
@@ -158,6 +174,54 @@ public class VoluntarioFormView extends javax.swing.JFrame {
             txtEda.setText("");
             btnAutorizacionNotarial.setEnabled(false);
             tipo = "";
+        }
+    }
+
+    private void cargarPostulantesEnTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) tablaPostulantes.getModel();
+        modelo.setRowCount(0);
+        File raiz = new File("Postulantes");
+        if (!raiz.exists() || !raiz.isDirectory()) {
+            JOptionPane.showMessageDialog(this, "No existe la carpeta 'Postulantes'");
+            return;
+        }
+        File[] carpetas = raiz.listFiles(File::isDirectory);
+        if (carpetas == null) return;
+        for (File carpeta : carpetas) {
+            File datos = new File(carpeta, "datos.txt");
+            if (!datos.exists()) continue;
+            try (BufferedReader br = new BufferedReader(new FileReader(datos))) {
+                String nombres = "";
+                String apellidos = "";
+                String dni = "";
+                String fecha = "";
+                String edad = "";
+                String sexo = "";
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    if (linea.startsWith("Nombres:")) {
+                        nombres = linea.replace("Nombres:", "").trim();
+                    }
+                    if (linea.startsWith("Apellidos:")) {
+                        apellidos = linea.replace("Apellidos:", "").trim();
+                    }
+                    if (linea.startsWith("DNI:")) {
+                        dni = linea.replace("DNI:", "").trim();
+                    }
+                    if (linea.startsWith("Fecha de nacimiento:")) {
+                        fecha = linea.replace("Fecha de nacimiento:", "").trim();
+                    }
+                    if (linea.startsWith("Edad:")) {
+                        edad = linea.replace("Edad:", "").trim();
+                    }
+                    if (linea.startsWith("Sexo:")) {
+                        sexo = linea.replace("Sexo:", "").trim();
+                    }
+                }
+                modelo.addRow(new Object[]{ nombres, apellidos, dni, fecha, edad, sexo });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -402,8 +466,15 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         paginaFinal = new javax.swing.JPanel();
         franjaRojaInicial1 = new javax.swing.JPanel();
         iconoBomberosInicial1 = new javax.swing.JLabel();
+        VerRegistros = new javax.swing.JButton();
         panel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        paginaRegistros = new javax.swing.JPanel();
+        franjaRojaInicial2 = new javax.swing.JPanel();
+        iconoBomberosInicial2 = new javax.swing.JLabel();
+        panel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPostulantes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
@@ -2170,6 +2241,17 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         iconoBomberosInicial1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
         franjaRojaInicial1.add(iconoBomberosInicial1, java.awt.BorderLayout.CENTER);
 
+        VerRegistros.setBackground(new java.awt.Color(255, 255, 255));
+        VerRegistros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        VerRegistros.setForeground(new java.awt.Color(185, 15, 15));
+        VerRegistros.setText("[Debug] Ver Registros");
+        VerRegistros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerRegistrosActionPerformed(evt);
+            }
+        });
+        franjaRojaInicial1.add(VerRegistros, java.awt.BorderLayout.LINE_END);
+
         paginaFinal.add(franjaRojaInicial1, java.awt.BorderLayout.PAGE_START);
 
         panel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -2186,17 +2268,43 @@ public class VoluntarioFormView extends javax.swing.JFrame {
 
         mainPanel.add(paginaFinal, "card2");
 
+        paginaRegistros.setBackground(new java.awt.Color(255, 255, 255));
+        paginaRegistros.setLayout(new java.awt.BorderLayout());
+
+        franjaRojaInicial2.setBackground(new java.awt.Color(180, 15, 15));
+        franjaRojaInicial2.setLayout(new java.awt.BorderLayout());
+
+        iconoBomberosInicial2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cuerpo general logo.png"))); // NOI18N
+        franjaRojaInicial2.add(iconoBomberosInicial2, java.awt.BorderLayout.CENTER);
+
+        paginaRegistros.add(franjaRojaInicial2, java.awt.BorderLayout.PAGE_START);
+
+        panel2.setBackground(new java.awt.Color(255, 255, 255));
+        panel2.setLayout(new java.awt.GridBagLayout());
+
+        tablaPostulantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaPostulantes);
+
+        panel2.add(jScrollPane1, new java.awt.GridBagConstraints());
+
+        paginaRegistros.add(panel2, java.awt.BorderLayout.CENTER);
+
+        mainPanel.add(paginaRegistros, "card2");
+
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnTomarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarFormularioActionPerformed
-        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
-        card.show(mainPanel, "paginaDatosPersonales");
-        state = 0;
-        actualizarBotones();
-    }//GEN-LAST:event_btnTomarFormularioActionPerformed
 
     private void btn0ContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ContactoActionPerformed
         java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
@@ -2667,7 +2775,13 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         .withDni(dni)
         .withFechaNacimiento(((JTextField)txtFec.getDateEditor().getUiComponent()).getText())
         .withEdad(edad)
-        .withSexo(btnSexMasculino.isSelected() ? "Masculino" : "Femenino")
+        .withSexo(
+            btnSexMasculino.isSelected() 
+                ? "Masculino" 
+                : btnSexFemenino.isSelected() 
+                    ? "Femenino" 
+                    : ""
+        )
         .withCorreo(txtCor.getText())
         .withTelefono(telefono)
         .withPoseeLicencia(btnLicSi.isSelected())
@@ -2878,6 +2992,20 @@ public class VoluntarioFormView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAutorizacionNotarialActionPerformed
 
+    private void VerRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerRegistrosActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaRegistros");
+        state = 100;
+        cargarPostulantesEnTabla();
+    }//GEN-LAST:event_VerRegistrosActionPerformed
+
+    private void btnTomarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTomarFormularioActionPerformed
+        java.awt.CardLayout card = (java.awt.CardLayout)(mainPanel.getLayout());
+        card.show(mainPanel, "paginaDatosPersonales");
+        state = 0;
+        actualizarBotones();
+    }//GEN-LAST:event_btnTomarFormularioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2931,6 +3059,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JLabel SECCION1;
     private javax.swing.JLabel SECCION2;
     private javax.swing.JLabel SECCION3;
+    private javax.swing.JButton VerRegistros;
     private javax.swing.JButton btn0Contacto;
     private javax.swing.JButton btn0DatosPersonales;
     private javax.swing.JButton btn0Documentacion;
@@ -3029,6 +3158,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnVolSi;
     private javax.swing.JPanel franjaRojaInicial;
     private javax.swing.JPanel franjaRojaInicial1;
+    private javax.swing.JPanel franjaRojaInicial2;
     private javax.swing.ButtonGroup grupoCompromisoCapacitacion;
     private javax.swing.ButtonGroup grupoEntrenamiento;
     private javax.swing.ButtonGroup grupoLicencia;
@@ -3041,6 +3171,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JLabel iconoBomberos4;
     private javax.swing.JLabel iconoBomberosInicial;
     private javax.swing.JLabel iconoBomberosInicial1;
+    private javax.swing.JLabel iconoBomberosInicial2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -3048,6 +3179,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAdjuntarIdentificacion;
     private javax.swing.JLabel lblApe;
     private javax.swing.JLabel lblAport;
@@ -3084,8 +3216,10 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JPanel paginaFinal;
     private javax.swing.JPanel paginaHabilidades;
     private javax.swing.JPanel paginaInicio;
+    private javax.swing.JPanel paginaRegistros;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel panel1;
+    private javax.swing.JPanel panel2;
     private javax.swing.JPanel panelContenido;
     private javax.swing.JPanel panelContenido1;
     private javax.swing.JPanel panelContenido2;
@@ -3121,6 +3255,7 @@ public class VoluntarioFormView extends javax.swing.JFrame {
     private javax.swing.JScrollPane scroll2;
     private javax.swing.JScrollPane scroll3;
     private javax.swing.JScrollPane scroll4;
+    private javax.swing.JTable tablaPostulantes;
     private javax.swing.JTextField txtApe;
     private javax.swing.JTextField txtAport;
     private javax.swing.JTextField txtCor;
