@@ -375,3 +375,26 @@ public class Voluntario {
 
 }
 
+
+
+
+
+/*
+INFORME TECNICO CODIGO:
+
+ESTUDIANTE 1 - NOMBRE: Cardenas Tantalean, Jhair Alexis
+Clases realizadas: BomberosSystem.java, Voluntario.java, VoluntarioBuilder.java, VoluntarioFactory.java, VoluntarioJoven.java, VoluntarioNuevo.java, VoluntarioReingreso.java, ExportarDatosService.java, VoluntarioFormView.java
+Patrones implementados: Factory(1), Builder(1), Service(1)
+Evidencia de avance GitHub: https://github.com/daJackLy/BomberosSystem.git
+
+ESTUDIANTE 2 - NOMBRE:
+Clases realizadas:
+Patrones implementados:
+Evidencia de avance GitHub: https://github.com/daJackLy/BomberosSystem.git
+
+ESTUDIANTE 3 - NOMBRE:
+Clases realizadas:
+Patrones implementados:
+Evidencia de avance GitHub: https://github.com/daJackLy/BomberosSystem.git
+*/
+
